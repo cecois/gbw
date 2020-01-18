@@ -1,1 +1,1 @@
-# gbw
+# gbw-gui
