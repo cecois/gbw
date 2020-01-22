@@ -1,5 +1,5 @@
 <template>
-<div id="GBW-vue-root">
+<div id="GBW-vue-root" :style="'font-family:'+FONT">
   <vue-particles style="position:absolute;top: 0;left: 0;width: 100%;height: 100%;"
   color="#dedede"
   :particleOpacity="0.2"
@@ -39,6 +39,7 @@
       </div>
     </div>
   </nav>
+
   <!--
   ..........................................................         __ __  __  ______  __  _________
   ..........................................................      __/ // /_/ / / / __ \/  |/  / ____/
@@ -62,7 +63,7 @@
           </h2>
     <!-- <p class="title GBW-copy-default">data-focused consulting and development</p> -->
 <h3 class="subtitle is-size-3">
-  <button @click="actives.pane='#PRESCREEN'" class="button is-large" type="">Prescreen Us!</button>
+  <button @click="actives.pane='#PRESCREEN'" class="button is-large GBW-btn-light" type="submit">Prescreen Us!</button>
 </h3>
 <!-- <div v-for="(agency, idx) in prescreens" :key="idx" class="card">
   {{agency.email}}
@@ -91,6 +92,28 @@
  ••••••••••••••••• +++++++++++============++++++++++ •••••• / ____/ _, _/ /___ ___/ / /___/ _, _/ /___/ /___/ /|  /
 ••••••••••••••••• +++++++++++============++++++++++ •••••• /_/   /_/ |_/_____//____/\____/_/ |_/_____/_____/_/ |_/
  -->
+
+
+
+<!-- 
+    fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> __________  _   ________   _____ ________
+   fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> / ____/ __ \/ | / /_  __/  / ___// ____/ /
+  fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> / /_  / / / /  |/ / / /     \__ \/ __/ / /
+ fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> / __/ / /_/ / /|  / / /     ___/ / /___/ /___
+fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> /_/    \____/_/ |_/ /_/     /____/_____/_____/
+ -->
+<nav class="level">
+  <!-- Left side -->
+  <div class="level-left">
+    <div v-for="font in fonts" class="level-item">
+      <p @click="FONT=font" :class="['KILLME','subtitle','is-7',font==FONT?'has-text-weight-bold':'']">
+        {{font}}
+      </p>
+    </div>
+  </div>
+</nav>
+
+
 <section id="PRESCREEN" class="hero is-fullheight GBW-div-bold">
 <div class="hero-body">
   <div class="container">
@@ -99,37 +122,43 @@
     </h1>
 
     <p>
-       Tell us about your data problem and we will write back with our initial thoughts. Very seriously - no hard sell, no fee, just a conversation about your situation. Think of it as free data therapy :-) An actual human being is going to read what you write and reply. (So of course don't put any sensitive information in here - just describe what's bugging you about your data situation).
+       Tell us about your data problem and we will write back with our initial thoughts. Very seriously - no hard sell, no fee, just a conversation about your situation. Think of it as free data therapy!</p>
+       <p>An actual human being is going to read what you write and reply. (So of course don't put any sensitive information in here - just describe what's bugging you about your data situation).
     </p>
 
-    <p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to use a burner address using any of these services:</p>
+    <p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to use a burner address using any of these DEA services**:</p>
+<p>&nbsp;</p>
+    <nav class="level">
+  <!-- Left side -->
+    <div class="level-item">
+      <p>
+        <a href="https://maildrop.cc/">Maildrop</a>
+      </p>
+    </div>
+    <div class="level-item has-text-centered"><p><a href="https://www.guerrillamail.com/">Guerrilla Mail</a></p></div>
+<div class="level-item has-text-centered"><p><a href="http://www.fakeinbox.com/">Fake Inbox</a></p></div>
+<div class="level-item has-text-centered"><p><a href="https://temp-mail.org/en/">TempMail</a></p></div>
+</nav>
+<p style="padding:0 5em 2em 5em;" class="is-size-7 has-text-italic">** There are <a href="https://duckduckgo.com/?q=email+anonymous+service+free&t=h_&df=y&ia=web">plenty of these services</a> and we're not endorsing any of them. Also — honorable mention — it's less anonymous (for obvious reasons), but if your email provider supports <a href="https://en.wikipedia.org/wiki/Email_address#Subaddressing">subaddressing</a> you can do something like this: take your email address ("Alphabet@gmail.com" let's say) and you can endlessly just append a '+' (or, often, *any* character) and then a random string to the end of it and all of these addresses will also deliver to Alphabet@gmail.com (so Alphabet+123456@gmail.com or Alphabet+tebahplA@gmail.com and so on).</p>
 
-    <ul>
-      <li><a href="https://maildrop.cc/">Maildrop</a></li>
-        <li><a href="https://www.guerrillamail.com/">Guerilla Mail</a></li>
-        <li><a href="http://www.fakeinbox.com/">Fake Inbox</a></li>
-        <li><a href="https://temp-mail.org/en/">TempMail</a></li>
-        <li>(honorable mention) It's less anonymous (for obvious reasons), but if your email provider supports "<a href="https://en.wikipedia.org/wiki/Email_address#Subaddressing">subaddressing</a>" you can do something like this: take your email address ("Alphabet@gmail.com" let's say) and you can endlessly just append a '+' and then a random string to the end of it and all of these addresses will also deliver to Alphabet@gmail.com (so Alphabet+123456@gmail.com or Alphabet+tebahplA@gmail.com and so on).</li>
-      </ul>
-    
 <p>
   <form>
   <div class="input-group control has-icons-left has-icons-right">
     <div class="field">
-    <input v-model="prescreen.email" :class="['input',isEmailValid()?'is-success':'is-error']" type="email" placeholder="Email">
+    <input v-model="prescreen.email" :class="['input',isEmailValid('prescreen')?'is-success':'is-error']" type="text" placeholder="Email">
     <span class="icon is-small is-left">
       <font-awesome-icon icon="envelope" />
     </span>
     <span class="icon is-small is-right">
-      <font-awesome-icon v-if="isEmailValid()" icon="check" />
-      <font-awesome-icon v-if="!isEmailValid()" icon="frown" />
+      <font-awesome-icon v-if="isEmailValid('prescreen')" icon="check" />
+      <font-awesome-icon v-if="!isEmailValid('prescreen')" icon="frown" />
     </span>
 </div NB=".field">
   </div NB=".input-group">
   &nbsp;
 <textarea  v-model="prescreen.content" class="textarea" placeholder="" rows="10"></textarea>
-<button @click="addPreScreen" :class="['button','is-large','is-dark','is-fullwidth',prescreen.waiting?'is-loading':'']" :disabled="!isEmailValid()" type="submit">{{prescreen.status}}</button>
-<p v-if="!isEmailValid()" class="is-error has-text-centered is-size-7">(please enter a valid email address)</p>
+<button @click="addPreScreen" :class="['GBW-btn-light','button','is-large','is-light','is-fullwidth',prescreen.waiting?'is-loading':'']" :disabled="!isEmailValid('prescreen')" type="submit">{{prescreen.status}}</button>
+<p v-if="!isEmailValid('prescreen')" class="is-error has-text-centered is-size-7">(please enter a valid email address)</p>
 </form>
 
 </p>
@@ -145,12 +174,81 @@
 </div NB="GBW-footer-faux">
 </section>
 
+
+
+<!--
+    ---------++++++++++++============************   ___    ____  ____  ____  ____  ___   ________  __
+   ---------++++++++++++============************   /   |  / __ \/ __ \/ __ \/ __ \/   | / ____/ / / /
+  ---------++++++++++++============************   / /| | / /_/ / /_/ / /_/ / / / / /| |/ /   / /_/ /
+ ---------++++++++++++============************   / ___ |/ ____/ ____/ _, _/ /_/ / ___ / /___/ __  /
+---------++++++++++++============************   /_/  |_/_/   /_/   /_/ |_|\____/_/  |_\____/_/ /_/
+-->
+<section id="APPROACH" class="hero is-fullheight GBW-div-bold">
+<div class="hero-body">
+  <div class="container">
+    <h1 class="title GBW-copy-default">
+    Our Approach
+    </h1>
+<p class="GBW-pullquote-right">We do. And we love it.</p>
+<p>Probably you know why you're here: you know that <em>something</em> more can be done with your data.</p>
+<p>Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
+<p>But who in your organization has the time for this?</p>
+<hr/>
+<p class="GBW-pullquote-left">Here's what we'll do.</p>
+<p>First we'll meet and talk. It will feel a lot like an interview, maybe a little like an interrogation, but it's all in good fun. And vital to the understanding of your situation.</p>
+<p>Then the meeting will end and we'll retreat and study what we've heard; investigate any technologies we don't already know, any data sources that might help; and revisit any work we've already done that might inform (or shortcut, even) your situation. Almost certainly there will be follow-ups. (Just emails, don't worry.)</p>
+<p>After that – and this tends to depend on the situation – we will deliver ideas. Ideas about solutions. They might simply be recommendations, they might be sketches for custom solutions, or it might be a comprehensive and long-term analysis. We're a small, agile, and attentive firm, which means we really spend the time on *your* problems. Because they've become ours.</p>
+<hr/>
+<p class="GBW-pullquote-right">Then it's time for us to deliver.</p>
+<p>In some cases we'll be done at this point. Otherwise it's probably time to meet again to set timelines, do technical demos, make more sketches together, and more questions. We want to get it right.</p>
+<p>Reserving the right to follow-up and iterate, of course, we'll get you where you want to be. Possibly beyond.</p>
+
+  </div>
+</div>
+<div class="GBW-footer-faux columns">
+  <div class="column is-1">
+    <a @click.prevent="actives.pane='#HOME'" href="">
+      (<font-awesome-icon icon="arrow-up" />)
+    </a>
+  </div>
+</div NB="GBW-footer-faux">
+</section>
+
 <!-- 
-     contact.contact.contact.contact.contact.contact........... __ __  __________  _   ___________   ____________
-  contact.contact.contact.contact.contact.contact........... __/ // /_/ ____/ __ \/ | / /_  __/   | / ____/_  __/
- contact.contact.contact.contact.contact.contact........... /_  _  __/ /   / / / /  |/ / / / / /| |/ /     / /
-contact.contact.contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / ___ / /___  / /
- contact.contact.contact.contact.contact.contact........... /_//_/  \____/\____/_/ |_/ /_/ /_/  |_\____/ /_/
+    about.about.aboutabout.about.aboutabout.about.about:: ___    ____  ____  __  ________
+   about.about.aboutabout.about.aboutabout.about.about:: /   |  / __ )/ __ \/ / / /_  __/
+  about.about.aboutabout.about.aboutabout.about.about:: / /| | / __  / / / / / / / / /
+ about.about.aboutabout.about.aboutabout.about.about:: / ___ |/ /_/ / /_/ / /_/ / / /
+about.about.aboutabout.about.aboutabout.about.about:: /_/  |_/_____/\____/\____/ /_/
+ -->
+<section id="ABOUT" class="hero is-fullheight GBW-div-bold">
+<div class="hero-body">
+  <div class="container">
+    <h1 class="title GBW-copy-default">
+    About Us
+    </h1>
+    
+<p>{{nameOfThing}} is a data-focused development and consulting firm devoted to helping our clients solve data problems and maximize data capability. We can clean, fix, and refine your data. We can optimize them. We can find external data that augment or inform yours. And we can build all manner of custom applications that present your own data back to you exactly how you need it. </p>
+<p>We deliver solutions that allow you to focus on what you do best, on top of the powerful tool that is your own data.</p>
+
+
+  </div>
+</div>
+<div class="GBW-footer-faux columns">
+  <div class="column is-1">
+    <a @click.prevent="actives.pane='#HOME'" href="">
+      (<font-awesome-icon icon="arrow-up" />)
+    </a>
+  </div>
+</div NB="GBW-footer-faux">
+</section>
+
+<!-- 
+     contact.contact.contact.contact........... __ __  __________  _   ___________   ____________
+  contact.contact.contact.contact........... __/ // /_/ ____/ __ \/ | / /_  __/   | / ____/_  __/
+ contact.contact.contact.contact........... /_  _  __/ /   / / / /  |/ / / / / /| |/ /     / /
+contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / ___ / /___  / /
+ contact.contact.contact.contact........... /_//_/  \____/\____/_/ |_/ /_/ /_/  |_\____/ /_/
  -->
 <section id="CONTACT" class="hero is-fullheight GBW-div-bold">
 <div class="hero-body">
@@ -175,88 +273,23 @@ contact.contact.contact.contact.contact.contact........... /_  _  __/ /___/ /_/ 
   &nbsp;
   <div class="input-group control has-icons-left has-icons-right">
     <div class="field">
-    <input v-model="contact.email" :class="['input',isEmailValid()?'is-success':'is-error']" type="email" placeholder="email">
+    <input v-model="contact.email" :class="['input',isEmailValid('contact')?'is-success':'is-error']" type="text" placeholder="email">
     <span class="icon is-small is-left">
       <font-awesome-icon icon="envelope" />
     </span>
     <span class="icon is-small is-right">
-      <font-awesome-icon v-if="isEmailValid()" icon="check" />
-      <font-awesome-icon v-if="!isEmailValid()" icon="frown" />
+      <font-awesome-icon v-if="isEmailValid('contact')" icon="check" />
+      <font-awesome-icon v-if="!isEmailValid('contact')" icon="frown" />
     </span>
 </div NB=".field">
   </div NB=".input-group">
   &nbsp;
 <textarea  v-model="contact.content" class="textarea" placeholder="" rows="10"></textarea>
-<button @click="addContact" :class="['button','is-large','is-dark','is-fullwidth',contact.waiting?'is-loading':'']" :disabled="!isEmailValid()" type="submit">{{contact.status}}</button>
-<p v-if="!isEmailValid()" class="is-error has-text-centered is-size-7">(please enter a valid email address)</p>
+<button @click="addContact" :class="['GBW-btn-light','button','is-large','is-light','is-fullwidth',contact.waiting?'is-loading':'']" :disabled="!isEmailValid('contact')" type="submit">{{contact.status}}</button>
+<p v-if="!isEmailValid('contact')" class="is-error has-text-centered is-size-7">(please enter a valid email address)</p>
 </form>
 
 </p>
-
-  </div>
-</div>
-<div class="GBW-footer-faux columns">
-  <div class="column is-1">
-    <a @click.prevent="actives.pane='#HOME'" href="">
-      (<font-awesome-icon icon="arrow-up" />)
-    </a>
-  </div>
-</div NB="GBW-footer-faux">
-</section>
-
-<!--
-    ---------++++++++++++============************   ___    ____  ____  ____  ____  ___   ________  __
-   ---------++++++++++++============************   /   |  / __ \/ __ \/ __ \/ __ \/   | / ____/ / / /
-  ---------++++++++++++============************   / /| | / /_/ / /_/ / /_/ / / / / /| |/ /   / /_/ /
- ---------++++++++++++============************   / ___ |/ ____/ ____/ _, _/ /_/ / ___ / /___/ __  /
----------++++++++++++============************   /_/  |_/_/   /_/   /_/ |_|\____/_/  |_\____/_/ /_/
--->
-<section id="APPROACH" class="hero is-fullheight GBW-div-bold">
-<div class="hero-body">
-  <div class="container">
-    <h1 class="title GBW-copy-default">
-    Our Approach
-    </h1>
-    
-<p>Probably you know why you're here: you know that something more can be done with your data.</p>
-<p>Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
-<p>But who in your organization has the time for this?</p>
-<p>We do. And we love it.</p>
-<p>Here's what we'll do: we'll meet and talk. It will feel a lot like an interview, maybe a little like an interrogation, but it's all in good fun. And vital to the understanding of your situation.</p>
-<p>Then the meeting will end and we'll retreat and study what we've heard; investigate any technologies we don't already know, any data sources that might help; and revisit any work we've already done that might inform (or shortcut, even) your situation.</p>
-<p>Almost certainly there will be follow-ups. (Just emails, don't worry.)</p>
-<p>After that – and this tends to depend on the situation – we will deliver ideas. Ideas about solutions. They might simply be recommendations, they might be sketches for custom solutions, or it might be a comprehensive and long-term analysis. We're a small, agile, and attentive firm, which means we really spend the time on *your* problems. Because they've become ours.</p>
-<p>In some cases we'll be done at this point. Otherwise it's probably time to meet again to set timelines, do technical demos, make more sketches together, and more questions. We want to get it right.</p>
-<p>Then it's time for us to deliver. Reserving the right to follow-up and iterate, of course, we'll get you where you want to be. Possibly beyond.</p>
-
-  </div>
-</div>
-<div class="GBW-footer-faux columns">
-  <div class="column is-1">
-    <a @click.prevent="actives.pane='#HOME'" href="">
-      (<font-awesome-icon icon="arrow-up" />)
-    </a>
-  </div>
-</div NB="GBW-footer-faux">
-</section>
-
-<!-- 
-    ++++++++++++++++++=======............++++++++++++++++++=======.........,,,,,,,, ___    ____  ____  __  ________
-   ++++++++++++++++++=======............++++++++++++++++++=======.........,,,,,,,, /   |  / __ )/ __ \/ / / /_  __/
-  ++++++++++++++++++=======............++++++++++++++++++=======.........,,,,,,,, / /| | / __  / / / / / / / / /
- ++++++++++++++++++=======............++++++++++++++++++=======.........,,,,,,,, / ___ |/ /_/ / /_/ / /_/ / / /
-++++++++++++++++++=======............++++++++++++++++++=======.........,,,,,,,, /_/  |_/_____/\____/\____/ /_/
- -->
-<section id="ABOUT" class="hero is-fullheight GBW-div-bold">
-<div class="hero-body">
-  <div class="container">
-    <h1 class="title GBW-copy-default">
-    About Us
-    </h1>
-    
-<p>{{nameOfThing}} is a data-focused development and consulting firm devoted to helping our clients solve data problems and maximize data capability. We can clean, fix, and refine your data. We can optimize them. We can find external data that augment or inform yours. And we can build all manner of customer applications that present your own data back to you exactly how you need it. </p>
-<p>We deliver solutions that allow you to focus on what you do best, on top of the powerful tool that is your own data.</p>
-
 
   </div>
 </div>
@@ -287,27 +320,7 @@ contact.contact.contact.contact.contact.contact........... /_  _  __/ /___/ /_/ 
       There's a chance you don't need us at all! Here are some common tools for working with data, information, and the systems that consume and produce them.
     </h2>
 
-<div class="columns" style="margin-bottom:5em;">
-<div class="column"><p class="subtitle">OpenRefine</p>
-<p><figure style="margin-right:1em;" class="image is-96x96 is-pulled-left"><img class="other-logo" src="@/assets/logo-ext-refine.png"></figure><a target="_blank" href="https://openrefine.org/">OpenRefine</a> is a data scrubbing <em>monster</em>. It finds duplicates for you; it normalizes same-but-not values for you (think "Mr." vs "Mister" or "1001" as a string vs 1001 as an integer); it does semantic lookups and associations against third-party APIs and sources (think address lookups [geocoding] or name searches against Wikipedia). It does much more than this. For real!</p>
-</div NB=".column">
 
-</div NB=".columns">
-<div class="columns" style="margin-bottom:5em;">
-<div class="column"><p class="subtitle">IFTTT, Parabola.io, Pipefy</p>
-<p><figure style="margin-right:1em;" class="image is-64x64 is-pulled-left"><img class="other-logo" src="@/assets/logo-ext-ifttt.svg"></figure><a target="_blank" href="">IFTTT</a>, <a target="_blank" href="">Parabola.io</a>, nad <a target="_blank" href="https://www.pipefy.com/">Pipefy</a> are all task automators, at various degrees of sophistication. In the absence of a custom API designed to facilitate data-based visualization, analysis, or interrogation, somewhat minimal triggers and workflows can be set up in one or all of these platforms that can liven up your assets and begin making them do things for you.</p>
-</div NB=".column">
-</div NB=".columns">
-
-<div class="columns" style="margin-bottom:5em;">
-<div class="column"><p class="subtitle">Carto</p>
-<p><figure style="margin-right:1em;" class="image is-64x64 is-pulled-left"><img class="other-logo" src="@/assets/logo-ext-carto.svg"></figure>Working with data that have implicit or explicit spatial attributes opens up fantastic capability and faculty. Getting there can be laborious, however, and <a target="_blank" href="https://carto.com/">Carto.com</a> endeavors to abstract a lot of the grittier aspects of doing spatial data work. Pro tip, though? All the powers Carto injects into using spatial data -- <a target="_blank" href="https://carto.com/developers">query, storage, an automatic API</a> -- can also featurize plain old tabular data as well. You don't <em>have</em> to map them.</p>
-</div NB=".column">
-<div class="column"><p class="subtitle">QGIS</p><p><figure style="margin-right:1em;" class="image is-64x64 is-pulled-right"><img class="other-logo" src="@/assets/logo-ext-qgis.svg"></figure><a target="_blank" href="">QGIS</a> is a legendary GIS project - software for the visualization, manipulation, and analysis of spatial data. Associate your customers' addresses with coordinates, connect their zip codes to Census demographics, aggregate sales data per retail location -- once your data are implicitly or explicitly spatial you're open to a new world of analysis and visualization, and QGIS is a 100% free and open source software that makes it easy (easi<em>er</em>, anyway).</p></div NB=".column">
-  <div class="column"><p class="subtitle">LibreOffice</p>
-  <p><figure style="margin-right:1em;" class="image is-24x24 is-pulled-left"><img class="other-logo" src="https://bulma.io/images/placeholders/24x24.png"></figure><a target="_blank" href="">LibreOffice</a> is a bit of an honorable mention, really. In fact we don't recommend doing data work at all in this alternative to the Microsoft Office suite, but it's a legendary project that has brought Office capabilities to countless users for the absolute price of zero dollars.</p>
-</div NB=".column">
-</div NB=".columns">
   
   </div NB=".container">
 </div NB=".hero-body">
@@ -396,6 +409,29 @@ export default {
   },
   data() {
     return {
+      FONT:'Hind',
+      fonts:[
+      'Abel',
+'Alatsi',
+'Arimo',
+'Be Vietnam',
+'Darker Grotesque',
+'Gayathri',
+'Hammersmith One',
+'Hind',
+'Karla',
+'Krub',
+'Kulim Park',
+'Lato',
+'Nunito',
+'Open Sans',
+'PT Sans Narrow',
+'Sawarabi Gothic',
+'Source Sans Pro',
+'Titillium Web',
+'Varela Round',
+'Voltaire'
+      ],
       nameOfThing:'%3CGBW%3E',
       CONFIG: null,
       showNav: false,
@@ -403,7 +439,7 @@ export default {
       page: {
         splayed: false,
         panes: [{
-          label: 'Home',
+          label: '',
           slug: '#HOME'
         },
         // { label: 'M1', slug: '#M1' }, 
@@ -421,9 +457,13 @@ export default {
     };
   },
   methods: {
-    isEmailValid: function() {
+    isEmailValid: function(w) {
       const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/;
-      return (this.prescreen.email == "")? "" : (reg.test(this.prescreen.email)) ? true : false;
+      if(w=='prescreen'){
+            return (this.prescreen.email == "")? "" : (reg.test(this.prescreen.email)) ? true : false;}
+            else if(w=='contact'){
+              return (this.contact.email == "")? "" : (reg.test(this.contact.email)) ? true : false;
+            }
     },
     sendEmailPrescreen: function() {
       let O={reply_to:this.prescreen.email,prescreenBody:this.prescreen.content}

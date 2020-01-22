@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Cute+Font&display=swap');
-@import url("https://fonts.googleapis.com/css?family=Titillium+Web:900&display=swap");
+// @import url('https://fonts.googleapis.com/css?family=Abel|Arimo|Be+Vietnam|Cute+Font|Hind|Karla|Lato|Nunito|Open+Sans|PT+Sans+Narrow|Source+Sans+Pro|Titillium+Web|Varela+Round|ZCOOL+QingKe+HuangYou&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Abel|Alatsi|Arimo|Be+Vietnam|Cute+Font|Darker+Grotesque|Gayathri|Hammersmith+One|Hind|Karla|Krub|Kulim+Park|Lato|Nunito|Open+Sans|PT+Sans+Narrow|Sawarabi+Gothic|Source+Sans+Pro|Titillium+Web|Varela+Round|Voltaire&display=swap');
 
 $GBW-font-branded:'Cute Font', cursive;
-$GBW-font-copy: sans-serif;
+$GBW-font-copy: 'Alata', sans-serif;
 $GBW-font-input: 'Titillium Web', sans-serif;
 // 'Josefin Sans', sans-serif;
 
 /* ========================== GBW brand real 
+================= */
 
 $GBW-default: rgba(247, 247, 242, 1);
 
@@ -15,9 +17,7 @@ $GBW-secondary: rgba(99, 83, 128, 1);
 $GBW-tertiary: rgba(73, 48, 107, 1);
 $GBW-quaternary: rgba(144, 112, 140, 1);
 
-================= */
 /* ========================== GBW brand dev 
-================= */
 
 $GBW-default: rgba(252, 252, 252, 1);
 
@@ -25,12 +25,25 @@ $GBW-primary: rgba(63, 64, 69, 1);
 $GBW-secondary: rgba(106, 104, 122, 1);
 $GBW-tertiary: rgba(132, 130, 143, 1);
 $GBW-quaternary: rgba(93, 115, 126, 1);
+================= */
 
 /* ========================== PAGE LEVEL/GLOBAL ================= */
 
+.KILLME{
+  color:grey;
+  &:hover{
+    color:black;
+    cursor: vertical-text;
+  }
+}
+
 body{
   padding:0;margin:0;
-  font-family:$GBW-font-copy;
+  p{
+    padding:1em 1em 0 1em;
+    // line-height: 1.1em;
+  }
+  // font-family:$GBW-font-copy;
 }
 footer{
   font-size:.8em;
@@ -81,7 +94,6 @@ font-weight:800;
   color:$GBW-default;
   a{
     color:$GBW-default;
-    text-decoration: underline;
     font-weight:800;
     &:hover{
       color:darken($GBW-default,15%);
@@ -93,7 +105,6 @@ font-weight:800;
   color:$GBW-primary;
   a{
     color:$GBW-secondary;
-    text-decoration: underline;
     font-weight:800;
     &:hover{
       color:darken($GBW-secondary,15%);
@@ -110,22 +121,42 @@ font-weight:800;
   align-items: center;
 }
 
-input{
+input[type=text]{
+  border: none;
+  
+  &:focus{
+  border: 2px solid gold;
+    // border:1px solid gold;
+    // border: 2px solid red;
+  }
   font-weight:800;
-  color:$GBW-primary;
+  color:$GBW-secondary;
   font-family:$GBW-font-input;
   font-size:1.2em;
-  ::selection {
+  &::selection {
   background-color: $GBW-quaternary; /* WebKit/Blink Browsers */
   color:$GBW-secondary;
 }
-::-moz-selection {
+&::-moz-selection {
   background-color: $GBW-quaternary; /* Gecko Browsers */
   color:$GBW-secondary;
 }
 }
 
 /* ========================== GBW classes and IDs ================= */
+.GBW-pullquote-right
+{font-size:2em;
+float:right;
+padding:1.6em 2.25em;
+font-weight:800;
+}
+.GBW-pullquote-left
+{font-size:2em;
+float:left;
+padding:1.6em 2.25em;
+font-weight:800;
+}
+
 #GBW-nav{
 font-family:$GBW-font-copy;
   background-color:darken($GBW-primary,5%);border-bottom:1px solid $GBW-default;font-weight:800;
@@ -138,6 +169,23 @@ font-family:$GBW-font-copy;
       background-color:darken($GBW-primary,5%);
       color:$GBW-quaternary;
     }
+  }
+}
+
+//     btns.btns.btnsbtns.btns.btns.btns.btns.btns.  ____  __  __________________  _   _______
+//    btns.btns.btnsbtns.btns.btns.btns.btns.btns.  / __ )/ / / /_  __/_  __/ __ \/ | / / ___/
+//   btns.btns.btnsbtns.btns.btns.btns.btns.btns.  / __  / / / / / /   / / / / / /  |/ /\__ \
+//  btns.btns.btnsbtns.btns.btns.btns.btns.btns.  / /_/ / /_/ / / /   / / / /_/ / /|  /___/ /
+// btns.btns.btnsbtns.btns.btns.btns.btns.btns.  /_____/\____/ /_/   /_/  \____/_/ |_//____/
+.GBW-btn-light{
+  background-color:$GBW-default;
+    color:$GBW-primary;
+    border:none;
+  &:hover{
+    background-color:lighten($GBW-default,20%);
+    font-weight:400;
+    box-shadow: 0px 0px 10px 2px lighten($GBW-default,20%);
+    border:none;
   }
 }
 
