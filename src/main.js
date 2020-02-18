@@ -11,6 +11,10 @@ import Buefy from 'buefy';
 import VueParticles from 'vue-particles';
 import VueScrollTo from 'vue-scrollto';
 
+import * as VUETHREEJS from 'vue-threejs'
+Vue.use(VUETHREEJS)
+
+
 // firebase stuff
 // import VueFire from 'vuefire'
 import VUEFIRESTORE from 'vue-firestore'
