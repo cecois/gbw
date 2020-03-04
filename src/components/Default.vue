@@ -382,7 +382,7 @@ import { db } from '../main'
 export default {
   components: {
   },
-  name: "GBW",
+  name: "Volley Consulting",
   created: function() {
     this.CONFIG = CONFIGG.mode=="prod"?CONFIGG.prod:CONFIGG.dev
     this.actives = {
@@ -409,7 +409,7 @@ export default {
   },
   data() {
     return {
-      FONT:'Hind',
+      FONT:'Karla',
       fonts:[
       'Abel',
 'Alatsi',
@@ -432,7 +432,7 @@ export default {
 'Varela Round',
 'Voltaire'
       ],
-      nameOfThing:'%3CGBW%3E',
+      nameOfThing:'%3CVo||eY%3E',
       CONFIG: null,
       showNav: false,
       loadings: { maplayer: false, app: false, popupopen: false },
@@ -449,7 +449,7 @@ export default {
         { label: 'Contact Us',slug: '#CONTACT' },
         { label: 'Tools',slug: '#TOOLS' }]
       },
-      project: { shorthand: "GBW" },
+      project: { shorthand: "Volley" },
       console: { msgs: [] },
       actives: { pane: 'default'},
       prescreen: {status:"Submit",waiting:false,"email":null,"content":null,"timestamp":new Date()},
