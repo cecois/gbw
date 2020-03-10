@@ -101,9 +101,7 @@
   fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> / /_  / / / /  |/ / / /     \__ \/ __/ / /
  fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> / __/ / /_/ / /|  / / /     ___/ / /___/ /___
 fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> /_/    \____/_/ |_/ /_/     /____/_____/_____/
- -->
 <nav class="level">
-  <!-- Left side -->
   <div class="level-left">
     <div v-for="font in fonts" class="level-item">
       <p @click="FONT=font" :class="['KILLME','subtitle','is-7',font==FONT?'has-text-weight-bold':'']">
@@ -112,6 +110,7 @@ fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> /_/    \____/_/ |_/ /_/     
     </div>
   </div>
 </nav>
+ -->
 
 
 <section id="PRESCREEN" class="hero is-fullheight GBW-div-bold">
@@ -126,7 +125,7 @@ fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> /_/    \____/_/ |_/ /_/     
        <p>An actual human being is going to read what you write and reply. (So of course don't put any sensitive information in here - just describe what's bugging you about your data situation).
     </p>
 
-    <p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to use a burner address using any of these DEA services**:</p>
+    <p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to get a burner address using any of these DEA services**:</p>
 <p>&nbsp;</p>
     <nav class="level">
   <!-- Left side -->
@@ -139,7 +138,7 @@ fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> /_/    \____/_/ |_/ /_/     
 <div class="level-item has-text-centered"><p><a href="http://www.fakeinbox.com/">Fake Inbox</a></p></div>
 <div class="level-item has-text-centered"><p><a href="https://temp-mail.org/en/">TempMail</a></p></div>
 </nav>
-<p style="padding:0 5em 2em 5em;" class="is-size-7 has-text-italic">** There are <a href="https://duckduckgo.com/?q=email+anonymous+service+free&t=h_&df=y&ia=web">plenty of these services</a> and we're not endorsing any of them. Also — honorable mention — it's less anonymous (for obvious reasons), but if your email provider supports <a href="https://en.wikipedia.org/wiki/Email_address#Subaddressing">subaddressing</a> you can do something like this: take your email address ("Alphabet@gmail.com" let's say) and you can endlessly just append a '+' (or, often, *any* character) and then a random string to the end of it and all of these addresses will also deliver to Alphabet@gmail.com (so Alphabet+123456@gmail.com or Alphabet+tebahplA@gmail.com and so on).</p>
+<p style="padding:0 5em 2em 5em;" class="is-size-6 has-text-italic">** There are <a href="https://duckduckgo.com/?q=email+anonymous+service+free&t=h_&df=y&ia=web">plenty of these services</a> and we're not endorsing any of them. Also — honorable mention — it's less anonymous (for obvious reasons), but if your email provider supports <a href="https://en.wikipedia.org/wiki/Email_address#Subaddressing">subaddressing</a> you can do something like this: take your email address ("Alphabet@gmail.com" let's say) and you can endlessly just append a '+' (or, often, *any* character) and then a random string to the end of it and all of these addresses will also deliver to Alphabet@gmail.com (so Alphabet+123456@gmail.com or Alphabet+tebahplA@gmail.com and so on).</p>
 
 <p>
   <form>
@@ -410,28 +409,28 @@ export default {
   data() {
     return {
       FONT:'Karla',
-      fonts:[
-      'Abel',
-'Alatsi',
-'Arimo',
-'Be Vietnam',
-'Darker Grotesque',
-'Gayathri',
-'Hammersmith One',
-'Hind',
-'Karla',
-'Krub',
-'Kulim Park',
-'Lato',
-'Nunito',
-'Open Sans',
-'PT Sans Narrow',
-'Sawarabi Gothic',
-'Source Sans Pro',
-'Titillium Web',
-'Varela Round',
-'Voltaire'
-      ],
+//       fonts:[
+//       'Abel',
+// 'Alatsi',
+// 'Arimo',
+// 'Be Vietnam',
+// 'Darker Grotesque',
+// 'Gayathri',
+// 'Hammersmith One',
+// 'Hind',
+// 'Karla',
+// 'Krub',
+// 'Kulim Park',
+// 'Lato',
+// 'Nunito',
+// 'Open Sans',
+// 'PT Sans Narrow',
+// 'Sawarabi Gothic',
+// 'Source Sans Pro',
+// 'Titillium Web',
+// 'Varela Round',
+// 'Voltaire'
+//       ],
       nameOfThing:'%3CVo||eY%3E',
       CONFIG: null,
       showNav: false,
