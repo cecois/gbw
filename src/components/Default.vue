@@ -408,7 +408,7 @@ export default {
   },
   data() {
     return {
-      FONT:'Karla',
+      FONT:'Nunito',
 //       fonts:[
 //       'Abel',
 // 'Alatsi',
@@ -431,7 +431,7 @@ export default {
 // 'Varela Round',
 // 'Voltaire'
 //       ],
-      nameOfThing:'%3CVo||eY%3E',
+      nameOfThing:'Volley',
       CONFIG: null,
       showNav: false,
       loadings: { maplayer: false, app: false, popupopen: false },
