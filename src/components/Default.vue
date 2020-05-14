@@ -34,7 +34,7 @@
       </div>
       <div class="navbar-end">
         <div class="navbar-item">
-          
+          <button @click="actives.pane='#PRESCREEN'" class="button is-large GBW-btn-light" type="submit">Prescreen Us!</button>
         </div>
       </div>
     </div>
@@ -47,8 +47,7 @@
   ..........................................................    /_  _  __/ __  / /_/ / /  / / /___
   ..........................................................     /_//_/ /_/ /_/\____/_/  /_/_____/
   ..........................................................
-  -->
-  <section id="HOME" class="hero is-fullheight GBW-div-splash">
+  <section id="HOME_OG" class="hero is-fullheight GBW-div-splash">
     <div class="columns is-vcentered" style="padding-top:12%;">
     <div class="column is-1"></div NB=".column">
     <div class="column is-6">
@@ -56,34 +55,66 @@
         <div class="container">
           <h1 class="title">
           {{nameOfThing}}
-          <!-- TENIS? -->
           </h1>
           <h2 class="subtitle">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit
           </h2>
-    <!-- <p class="title GBW-copy-default">data-focused consulting and development</p> -->
+    <p class="title GBW-copy-default">data-focused consulting and development</p>
 <h3 class="subtitle is-size-3">
   <button @click="actives.pane='#PRESCREEN'" class="button is-large GBW-btn-light" type="submit">Prescreen Us!</button>
 </h3>
-<!-- <div v-for="(agency, idx) in prescreens" :key="idx" class="card">
-  {{agency.email}}
-</div NB=".card"> -->
-
         </div>
       </div NB=".hero-body">
     </div ".column">
-  <!-- <div class="column is-1"></div NB=".column"> -->
   <div class="column is-5 has-text-centered">
     
     <figure class="image is-128x128">
   <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-      <!-- <img id="GBW-iso-logo" src="@/assets/construction-tower-blueprint.svg"> -->
-      <!-- <img src="@/assets/logo-note.svg"> -->
     </figure>
   </div ".column">
 </div NB=".columns">
 </section>
+  -->
 
+
+<!--
+    ---------++++++++++++============************   ___    ____  ____  ____  ____  ___   ________  __
+   ---------++++++++++++============************   /   |  / __ \/ __ \/ __ \/ __ \/   | / ____/ / / /
+  ---------++++++++++++============************   / /| | / /_/ / /_/ / /_/ / / / / /| |/ /   / /_/ /
+ ---------++++++++++++============************   / ___ |/ ____/ ____/ _, _/ /_/ / ___ / /___/ __  /
+---------++++++++++++============************   /_/  |_/_/   /_/   /_/ |_|\____/_/  |_\____/_/ /_/
+-->
+<!-- <section id="APPROACH" class="hero is-fullheight GBW-div-bold"> -->
+<section id="HOME" class="hero is-fullheight GBW-div-bold">
+<div class="hero-body">
+  <div class="container">
+    <!-- <h1 class="title GBW-copy-default">
+    Our Approach
+    </h1> -->
+<p class="GBW-pullquote-right">We do. And we love it.</p>
+<p>Probably you know why you're here: you know that <em>something</em> more can be done with your data.</p>
+<p>Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
+<p>But who in your organization has the time for this?</p>
+<hr/>
+<p class="GBW-pullquote-left">Here's what we'll do.</p>
+<p>First we'll meet and talk. It will feel a lot like an interview, maybe a little like an interrogation, but it's all in good fun. And vital to the understanding of your situation.</p>
+<p>Then the meeting will end and we'll retreat and study what we've heard; investigate any technologies we don't already know, any data sources that might help; and revisit any work we've already done that might inform (or shortcut, even) your situation. Almost certainly there will be follow-ups. (Just emails, don't worry.)</p>
+<p>After that – and this tends to depend on the situation – we will deliver ideas. Ideas about solutions. They might simply be recommendations, they might be sketches for custom solutions, or it might be a comprehensive and long-term analysis. We're a small, agile, and attentive firm, which means we really spend the time on *your* problems. Because they've become ours.</p>
+<hr/>
+<p class="GBW-pullquote-right">Then it's time for us to deliver.</p>
+<p>In some cases we'll be done at this point. Otherwise it's probably time to meet again to set timelines, do technical demos, make more sketches together, and more questions. We want to get it right.</p>
+<p>Reserving the right to follow-up and iterate, of course, we'll get you where you want to be. Possibly beyond.</p>
+
+  </div>
+</div>
+<div class="GBW-footer-faux columns">
+  <div class="column is-1">
+    <a @click.prevent="actives.pane='#HOME'" href="">
+      (<font-awesome-icon icon="arrow-up" />)
+    </a>
+  </div>
+</div NB="GBW-footer-faux">
+</section>
 
 <!-- 
     ••••••••••••••••• +++++++++++============++++++++++ •••••• ____  ____  ___________ __________  _____________   __
@@ -93,24 +124,6 @@
 ••••••••••••••••• +++++++++++============++++++++++ •••••• /_/   /_/ |_/_____//____/\____/_/ |_/_____/_____/_/ |_/
  -->
 
-
-
-<!-- 
-    fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> __________  _   ________   _____ ________
-   fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> / ____/ __ \/ | / /_  __/  / ___// ____/ /
-  fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> / /_  / / / /  |/ / / /     \__ \/ __/ / /
- fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> / __/ / /_/ / /|  / / /     ___/ / /___/ /___
-fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> /_/    \____/_/ |_/ /_/     /____/_____/_____/
-<nav class="level">
-  <div class="level-left">
-    <div v-for="font in fonts" class="level-item">
-      <p @click="FONT=font" :class="['KILLME','subtitle','is-7',font==FONT?'has-text-weight-bold':'']">
-        {{font}}
-      </p>
-    </div>
-  </div>
-</nav>
- -->
 
 
 <section id="PRESCREEN" class="hero is-fullheight GBW-div-bold">
@@ -125,20 +138,9 @@ fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> /_/    \____/_/ |_/ /_/     
        <p>An actual human being is going to read what you write and reply. (So of course don't put any sensitive information in here - just describe what's bugging you about your data situation).
     </p>
 
-    <p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to get a burner address using any of these DEA services**:</p>
+    <p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to get a burner address using a DEA service (see Tools)</p>
 <p>&nbsp;</p>
-    <nav class="level">
-  <!-- Left side -->
-    <div class="level-item">
-      <p>
-        <a href="https://maildrop.cc/">Maildrop</a>
-      </p>
-    </div>
-    <div class="level-item has-text-centered"><p><a href="https://www.guerrillamail.com/">Guerrilla Mail</a></p></div>
-<div class="level-item has-text-centered"><p><a href="http://www.fakeinbox.com/">Fake Inbox</a></p></div>
-<div class="level-item has-text-centered"><p><a href="https://temp-mail.org/en/">TempMail</a></p></div>
-</nav>
-<p style="padding:0 5em 2em 5em;" class="is-size-6 has-text-italic">** There are <a href="https://duckduckgo.com/?q=email+anonymous+service+free&t=h_&df=y&ia=web">plenty of these services</a> and we're not endorsing any of them. Also — honorable mention — it's less anonymous (for obvious reasons), but if your email provider supports <a href="https://en.wikipedia.org/wiki/Email_address#Subaddressing">subaddressing</a> you can do something like this: take your email address ("Alphabet@gmail.com" let's say) and you can endlessly just append a '+' (or, often, *any* character) and then a random string to the end of it and all of these addresses will also deliver to Alphabet@gmail.com (so Alphabet+123456@gmail.com or Alphabet+tebahplA@gmail.com and so on).</p>
+
 
 <p>
   <form>
@@ -175,43 +177,6 @@ fontsel.fontsel.fontsel.fontsel.fontsel.fontsel. >> /_/    \____/_/ |_/ /_/     
 
 
 
-<!--
-    ---------++++++++++++============************   ___    ____  ____  ____  ____  ___   ________  __
-   ---------++++++++++++============************   /   |  / __ \/ __ \/ __ \/ __ \/   | / ____/ / / /
-  ---------++++++++++++============************   / /| | / /_/ / /_/ / /_/ / / / / /| |/ /   / /_/ /
- ---------++++++++++++============************   / ___ |/ ____/ ____/ _, _/ /_/ / ___ / /___/ __  /
----------++++++++++++============************   /_/  |_/_/   /_/   /_/ |_|\____/_/  |_\____/_/ /_/
--->
-<section id="APPROACH" class="hero is-fullheight GBW-div-bold">
-<div class="hero-body">
-  <div class="container">
-    <h1 class="title GBW-copy-default">
-    Our Approach
-    </h1>
-<p class="GBW-pullquote-right">We do. And we love it.</p>
-<p>Probably you know why you're here: you know that <em>something</em> more can be done with your data.</p>
-<p>Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
-<p>But who in your organization has the time for this?</p>
-<hr/>
-<p class="GBW-pullquote-left">Here's what we'll do.</p>
-<p>First we'll meet and talk. It will feel a lot like an interview, maybe a little like an interrogation, but it's all in good fun. And vital to the understanding of your situation.</p>
-<p>Then the meeting will end and we'll retreat and study what we've heard; investigate any technologies we don't already know, any data sources that might help; and revisit any work we've already done that might inform (or shortcut, even) your situation. Almost certainly there will be follow-ups. (Just emails, don't worry.)</p>
-<p>After that – and this tends to depend on the situation – we will deliver ideas. Ideas about solutions. They might simply be recommendations, they might be sketches for custom solutions, or it might be a comprehensive and long-term analysis. We're a small, agile, and attentive firm, which means we really spend the time on *your* problems. Because they've become ours.</p>
-<hr/>
-<p class="GBW-pullquote-right">Then it's time for us to deliver.</p>
-<p>In some cases we'll be done at this point. Otherwise it's probably time to meet again to set timelines, do technical demos, make more sketches together, and more questions. We want to get it right.</p>
-<p>Reserving the right to follow-up and iterate, of course, we'll get you where you want to be. Possibly beyond.</p>
-
-  </div>
-</div>
-<div class="GBW-footer-faux columns">
-  <div class="column is-1">
-    <a @click.prevent="actives.pane='#HOME'" href="">
-      (<font-awesome-icon icon="arrow-up" />)
-    </a>
-  </div>
-</div NB="GBW-footer-faux">
-</section>
 
 <!-- 
     about.about.aboutabout.about.aboutabout.about.about:: ___    ____  ____  __  ________
@@ -319,7 +284,19 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
       There's a chance you don't need us at all! Here are some common tools for working with data, information, and the systems that consume and produce them.
     </h2>
 
-
+  <h4 class="is-size-4">eMail Subaddressing</h4>
+    <nav class="level">
+  <!-- Left side -->
+    <div class="level-item">
+      <p>
+        <a href="https://maildrop.cc/">Maildrop</a>
+      </p>
+    </div>
+    <div class="level-item has-text-centered"><p><a href="https://www.guerrillamail.com/">Guerrilla Mail</a></p></div>
+<div class="level-item has-text-centered"><p><a href="http://www.fakeinbox.com/">Fake Inbox</a></p></div>
+<div class="level-item has-text-centered"><p><a href="https://temp-mail.org/en/">TempMail</a></p></div>
+</nav>
+<p style="padding:0 5em 2em 5em;" class="is-size-6 has-text-italic">** There are <a href="https://duckduckgo.com/?q=email+anonymous+service+free&t=h_&df=y&ia=web">plenty of these services</a> and we're not endorsing any of them. Also — honorable mention — it's less anonymous (for obvious reasons), but if your email provider supports <a href="https://en.wikipedia.org/wiki/Email_address#Subaddressing">subaddressing</a> you can do something like this: take your email address ("Alphabet@gmail.com" let's say) and you can endlessly just append a '+' (or, often, *any* character) and then a random string to the end of it and all of these addresses will also deliver to Alphabet@gmail.com (so Alphabet+123456@gmail.com or Alphabet+tebahplA@gmail.com and so on).</p>
   
   </div NB=".container">
 </div NB=".hero-body">
@@ -409,28 +386,6 @@ export default {
   data() {
     return {
       FONT:'Nunito',
-//       fonts:[
-//       'Abel',
-// 'Alatsi',
-// 'Arimo',
-// 'Be Vietnam',
-// 'Darker Grotesque',
-// 'Gayathri',
-// 'Hammersmith One',
-// 'Hind',
-// 'Karla',
-// 'Krub',
-// 'Kulim Park',
-// 'Lato',
-// 'Nunito',
-// 'Open Sans',
-// 'PT Sans Narrow',
-// 'Sawarabi Gothic',
-// 'Source Sans Pro',
-// 'Titillium Web',
-// 'Varela Round',
-// 'Voltaire'
-//       ],
       nameOfThing:'Volley',
       CONFIG: null,
       showNav: false,
@@ -442,11 +397,12 @@ export default {
           slug: '#HOME'
         },
         // { label: 'M1', slug: '#M1' }, 
+        // { label: 'Approach',slug: '#APPROACH' },
         { label: 'Your Situation', slug: '#PRESCREEN' },
-        { label: 'About Us',slug: '#ABOUT' },
-        { label: 'Our Approach',slug: '#APPROACH' },
         { label: 'Contact Us',slug: '#CONTACT' },
-        { label: 'Tools',slug: '#TOOLS' }]
+        { label: 'Tools',slug: '#TOOLS' },
+        { label: 'About',slug: '#ABOUT' }
+        ]
       },
       project: { shorthand: "Volley" },
       console: { msgs: [] },
