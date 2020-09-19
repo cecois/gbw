@@ -14,6 +14,10 @@ import VueScrollTo from 'vue-scrollto';
 import * as VUETHREEJS from 'vue-threejs'
 Vue.use(VUETHREEJS)
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
 
 // firebase stuff
 // import VueFire from 'vuefire'
@@ -22,22 +26,42 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 Vue.use(VUEFIRESTORE)
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
+import {
+	library
+} from '@fortawesome/fontawesome-svg-core'
+import {
+	faArrowUp
+} from '@fortawesome/free-solid-svg-icons'
 library.add(faArrowUp)
-import { faFrown } from '@fortawesome/free-solid-svg-icons'
+import {
+	faFrown
+} from '@fortawesome/free-solid-svg-icons'
 library.add(faFrown)
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import {
+	faThumbsUp
+} from '@fortawesome/free-solid-svg-icons'
+library.add(faThumbsUp)
+import {
+	faEnvelope
+} from '@fortawesome/free-solid-svg-icons'
 library.add(faEnvelope);
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
-library.add(faCheck);
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import {
+	faCheck
+} from '@fortawesome/free-solid-svg-icons'
+import {
+	faMoon
+} from '@fortawesome/free-solid-svg-icons'
+library.add(faMoon);
+import {
+	FontAwesomeIcon
+} from '@fortawesome/vue-fontawesome'
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 var firebaseApp = firebase.initializeApp({
-databaseURL: "https://gbw1-28f50.firebaseio.com",
-projectId: "gbw1-28f50"
+	// databaseURL: "https://gbw1-28f50.firebaseio.com",
+	databaseURL: "https://volley-prescreen.firebaseio.com",
+	projectId: "volley-prescreen"
 })
 
 export const db = firebase.firestore()
@@ -47,36 +71,37 @@ firestore.settings(settings);
 
 
 
-let CONFIG=CONFIGD.mode=='prod'?CONFIGD.prod:CONFIGD.dev
+let CONFIG = CONFIGD.mode == 'prod' ? CONFIGD.prod : CONFIGD.dev
 
 Vue.component('vue-headful', vueHeadful)
 
 Vue.use(underscore);
 Vue.use(VueParticles)
 Vue.use(VueScrollTo, {
-     container: "body",
-     duration: 500,
-     easing: "ease",
-     offset: 0,
-     force: true,
-     cancelable: true,
-     onStart: false,
-     onDone: false,
-     onCancel: false,
-     x: false,
-     y: true
- })
+	container: "body",
+	duration: 500,
+	easing: "ease",
+	offset: 0,
+	force: true,
+	cancelable: true,
+	onStart: false,
+	onDone: false,
+	onCancel: false,
+	x: false,
+	y: true
+})
 
 Vue.config.productionTip = false;
-Object.defineProperty(Vue.prototype, '$MOMENT', { value: moment })
+Object.defineProperty(Vue.prototype, '$MOMENT', {
+	value: moment
+})
 
 
 new Vue({
-	el: "#app"
-	, router
-	, template: "<App/>"
-	, components: {
+	el: "#app",
+	router,
+	template: "<App/>",
+	components: {
 		App
 	}
 });
-

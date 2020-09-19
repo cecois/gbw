@@ -11,6 +11,7 @@ $GBW-font-input: 'Titillium Web', sans-serif;
 ================= */
 
 $GBW-default: rgba(247, 247, 242, 1);
+$GBW-white: $GBW-default;
 
 $GBW-primary: rgba(55, 37, 84, 1);
 $GBW-secondary: rgba(99, 83, 128, 1);
@@ -28,6 +29,15 @@ $GBW-quaternary: rgba(93, 115, 126, 1);
 ================= */
 
 /* ========================== PAGE LEVEL/GLOBAL ================= */
+
+// ::selection {
+//   background: $GBW-primary; /* WebKit/Blink Browsers */
+//   color:$GBW-white;
+// }
+// ::-moz-selection {
+//   background: $GBW-primary; /* Gecko Browsers */
+//   color:$GBW-white;
+// }
 
 .KILLME{
   color:grey;
@@ -49,14 +59,14 @@ footer{
   font-size:.8em;
   font-weight:100;
 }
-::selection {
-  background-color: white; /* WebKit/Blink Browsers */
-  color:$GBW-primary;
-}
-::-moz-selection {
-  background-color: white; /* Gecko Browsers */
-  color:$GBW-primary;
-}
+// ::selection {
+//   background-color: white; /* WebKit/Blink Browsers */
+//   color:$GBW-primary;
+// }
+// ::-moz-selection {
+//   background-color: white; /* Gecko Browsers */
+//   color:$GBW-primary;
+// }
 
 #GBW-iso-logo{
   opacity:.2;
@@ -67,10 +77,145 @@ footer{
     -o-filter:      grayscale(0%);
 }
 
-.GBW-copy-default{
-color:$GBW-secondary;
+
+/* ========================== GBW classes and IDs ================= */
+
+.N-GBW-schema-light{
+  background-color:$GBW-white;
+  color:$GBW-primary;
+    a{
+    color:$GBW-secondary;
+    &:hover{color:darken($GBW-secondary,8%);background-color:none;}
+  }
+  .navbar-item{
+    font-weight:900;
+    &:hover{
+      background-color:darken($GBW-white,2%);
+      color:$GBW-quaternary;
+      // border-bottom:1px solid $GBW-default;
+    }
+  }
+  .navbar-item.calm{
+    
+      &:hover{
+        background-color:$GBW-white;
+  color:$GBW-primary;
+    }
+  }
+
+.GBW-btn{
+  background-color:$GBW-primary;
+    color:$GBW-default;
+    border:none;
+  &:hover{
+    background-color:lighten($GBW-primary,20%);
+    font-weight:400;
+    box-shadow: 0px 0px 10px 2px lighten($GBW-primary,20%);
+    border:none;
+  }
 }
 
+  .GBW-div-default{
+  background-image: linear-gradient(to right, $GBW-primary , darken($GBW-primary,5%));
+  color:$GBW-primary;
+}
+// ------------------------------------------ /.schema-light
+}//N-GBW-schema-light
+
+.N-GBW-schema-dark{
+  background-color:$GBW-primary;
+  color:$GBW-white;
+    a{
+    color:$GBW-default;
+    &:hover{color:darken($GBW-default,8%);background-color:none;}
+  }
+  .navbar-item{
+    font-weight:900;
+    &:hover{
+      background-color:darken($GBW-primary,5%);
+      color:$GBW-quaternary;
+      // border-bottom:1px solid $GBW-default;
+    }
+  }
+
+  .navbar-item.calm{
+    
+      &:hover{
+        background-color:$GBW-primary;
+  color:$GBW-white;
+    }
+  }
+
+.GBW-btn{
+  background-color:$GBW-default;
+    color:$GBW-primary;
+    border:none;
+  &:hover{
+    background-color:lighten($GBW-default,20%);
+    font-weight:400;
+    box-shadow: 0px 0px 10px 2px lighten($GBW-default,20%);
+    border:none;
+  }
+}
+
+  .GBW-div-default{
+  background-image: linear-gradient(to right, $GBW-primary , darken($GBW-primary,5%));
+  color:$GBW-primary;
+}
+// ------------------------------------------ /.schema-dark
+}//L-GBW-schema-dark
+
+// .GBW-copy-default{
+// color:$GBW-secondary;
+// }
+
+.G-GBW-schema-light{
+  a{color:$GBW-quaternary;&:hover{color:$GBW-secondary;}}
+  background-color:$GBW-white;
+  color:$GBW-primary;
+  ::selection {
+  background-color: $GBW-secondary; /* WebKit/Blink Browsers */
+  color:$GBW-white;
+}
+::-moz-selection {
+  background-color: $GBW-secondary; /* Gecko Browsers */
+  color:$GBW-white;
+} 
+}//g-gbw-schema-light
+.G-GBW-schema-dark{
+  a{color:lighten($GBW-quaternary,20%);&:hover{color:$GBW-quaternary;}}
+  color:$GBW-white;
+  background-color:$GBW-primary;
+  ::selection {
+  background-color: $GBW-white; /* WebKit/Blink Browsers */
+  color:$GBW-tertiary;
+}
+::-moz-selection {
+  background-color: $GBW-white; /* Gecko Browsers */
+  color:$GBW-tertiary;
+}
+}//g-gbw-schema-dark
+
+.M-GBW-schema-light{
+    .title{
+  color:$GBW-primary;  
+  }
+// background-image: linear-gradient(to right, $GBW-white , darken($GBW-white,5%));
+
+  border-bottom:solid 1px transparentize($GBW-primary,.8);
+  }//.M-GBW-schema-light
+
+
+.M-GBW-schema-dark{
+    .title{
+  color:$GBW-white;  
+  }
+background-image: linear-gradient(to right, $GBW-primary , darken($GBW-primary,5%));
+  color:$GBW-white;
+  border-bottom:solid 1px transparentize($GBW-white,.8);
+  }//.M-GBW-schema-light
+
+/*
 .GBW-div-splash{
   background-image: linear-gradient(to right, $GBW-primary , darken($GBW-primary,5%));
   color:$GBW-default;
@@ -83,13 +228,11 @@ color:$GBW-secondary;
   color:$GBW-default;
 font-weight:800;
 }
-}
+}//gbw-div-splash
+*/
 
-.GBW-div-default{
-  background-image: linear-gradient(to right, $GBW-primary , darken($GBW-primary,5%));
-  color:$GBW-primary;
-}
-.GBW-div-bold{
+
+/*.GBW-div-bold{
   background-image: linear-gradient(to left, $GBW-primary , darken($GBW-primary,5%));
   color:$GBW-default;
   a{
@@ -114,7 +257,7 @@ font-weight:800;
 .GBW-div-secondary{
   background-color: $GBW-secondary;
   color:$GBW-primary;
-}
+}*/
 
 .is-vertically-centered {
   display: flex;
@@ -133,17 +276,19 @@ input[type=text]{
   color:$GBW-secondary;
   font-family:$GBW-font-input;
   font-size:1.2em;
-  &::selection {
-  background-color: $GBW-quaternary; /* WebKit/Blink Browsers */
-  color:$GBW-secondary;
-}
-&::-moz-selection {
-  background-color: $GBW-quaternary; /* Gecko Browsers */
-  color:$GBW-secondary;
-}
+//   &::selection {
+//   background-color: $GBW-quaternary; /* WebKit/Blink Browsers */
+//   color:$GBW-secondary;
+// }
+// &::-moz-selection {
+//   background-color: $GBW-quaternary; /* Gecko Browsers */
+//   color:$GBW-secondary;
+// }
 }
 
-/* ========================== GBW classes and IDs ================= */
+
+
+/* ========================================= /GBW classes and IDs ================= */
 
 .GBW-branding{
       &:hover{
@@ -166,10 +311,12 @@ margin-right:2em;
 font-weight:800;
 }
 
+
+
 #GBW-nav{
 font-family:$GBW-font-copy;
-  background-color:darken($GBW-primary,5%);border-bottom:1px solid $GBW-default;font-weight:800;
-  a{
+  // background-color:darken($GBW-primary,5%);border-bottom:1px solid $GBW-default;font-weight:800;
+  /*a{
     color:$GBW-default;
     &:hover{color:darken($GBW-default,8%);background-color:none;}
   }
@@ -179,45 +326,66 @@ font-family:$GBW-font-copy;
       color:$GBW-quaternary;
       border-bottom:1px solid $GBW-default;
     }
-  }
+  }*/
 }
 
-//     btns.btns.btnsbtns.btns.btns.btns.btns.btns.  ____  __  __________________  _   _______
-//    btns.btns.btnsbtns.btns.btns.btns.btns.btns.  / __ )/ / / /_  __/_  __/ __ \/ | / / ___/
-//   btns.btns.btnsbtns.btns.btns.btns.btns.btns.  / __  / / / / / /   / / / / / /  |/ /\__ \
-//  btns.btns.btnsbtns.btns.btns.btns.btns.btns.  / /_/ / /_/ / / /   / / / /_/ / /|  /___/ /
-// btns.btns.btnsbtns.btns.btns.btns.btns.btns.  /_____/\____/ /_/   /_/  \____/_/ |_//____/
-.GBW-btn-light{
-  background-color:$GBW-default;
-    color:$GBW-primary;
-    border:none;
-  &:hover{
-    background-color:lighten($GBW-default,20%);
-    font-weight:400;
-    box-shadow: 0px 0px 10px 2px lighten($GBW-default,20%);
-    border:none;
-  }
-}
 
-#GBW-footer{
+
   
-&::selection {
-  background-color: $GBW-secondary; /* WebKit/Blink Browsers */
-  color:$GBW-default;
-}
-&::-moz-selection {
-  background-color: $GBW-secondary; /* Gecko Browsers */
-  color:$GBW-default;
-}
+// &::selection {
+//   background-color: $GBW-secondary; /* WebKit/Blink Browsers */
+//   color:$GBW-default;
+// }
+// &::-moz-selection {
+//   background-color: $GBW-secondarky; /* Gecko Browsers */
+//   color:$GBW-default;
+// }
 
+.F-GBW-schema-dark{
 border-top:1px solid $GBW-primary;
   color:$GBW-primary;
   font-weight:800;
-  background-color:$GBW-default;
-  background-image:url('./assets/gbw-footer-bg.svg');
+  background-color:$GBW-white;
+  // background-image:url('./assets/gbw-footer-bg.svg');
   a{color:$GBW-quaternary;
       &:hover{
         color:lighten($GBW-default,12%);
+      }
+    }
+}
+
+.F-GBW-schema-light{
+border-top:1px solid $GBW-white;
+  color:$GBW-white;
+  font-weight:800;
+  background-color:$GBW-primary;
+  // background-image:url('./assets/gbw-footer-bg.svg');
+  a{color:$GBW-quaternary;
+      &:hover{
+        color:lighten($GBW-primary,12%);
+      }
+    }
+}
+
+.MO-GBW-schema-dark{
+  .modal-card{header{.modal-card-head{background-color:red;}}}
+  color:$GBW-primary;
+  // background-color:rgba(244,244,244,.9);
+  a{color:$GBW-quaternary;
+      &:hover{
+        color:lighten($GBW-default,12%);
+      }
+    }
+}
+
+.MO-GBW-schema-light{
+  .modal-card{header{.modal-card-head{background-color:pink;}}}
+  color:$GBW-white;
+  font-weight:800;
+  // background-color:rgba(244,244,244,.9);
+  a{color:$GBW-quaternary;
+      &:hover{
+        color:lighten($GBW-primary,12%);
       }
     }
 }

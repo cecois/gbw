@@ -1,7 +1,7 @@
 <template>
-<div id="GBW-vue-root" :style="'font-family:'+FONT">
+<div id="GBW-vue-root" :style="`font-family:${FONT}`" :class="[page.schema=='light'?'G-GBW-schema-light':'G-GBW-schema-dark']">
   <vue-particles style="position:absolute;top: 0;left: 0;width: 100%;height: 100%;"
-  color="#dedede"
+  :color="page.schema=='light'?'#372554':'#dedede'"
   :particleOpacity="0.2"
   :particlesNumber="101"
   shapeType="edge"
@@ -17,8 +17,30 @@
   :clickEffect="false"
   clickMode="push"
   />
-  <vue-headful :title="page.nameOfThing" description="fxsxxxrrrre" />
-  <nav id="GBW-nav" class="navbar" role="navigation" aria-label="main navigation">
+
+  <!-- 
+
+<title></title>
+
+    <meta itemprop="name">
+    <meta property="og:title">
+    <meta name="twitter:title">
+    <meta name="description"/>
+    <meta itemprop="description">
+    <meta property="og:description">
+    <meta name="twitter:description">
+
+   -->
+  <vue-headful 
+  :title="page.nameOfThing"
+  description="Description from vue-headful"
+  :keywords="page.keywordsForThing"
+  lang='en'
+  :head="{
+        'meta[charset]': {charset: 'utf-8'}
+    }"
+  />
+  <nav id="GBW-nav" :class="['navbar',page.schema=='light'?'N-GBW-schema-light':'N-GBW-schema-dark']" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a role="button" class="navbar-burger burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }" aria-label="menu" aria-expanded="false" data-target="navbarGBW">
         <span aria-hidden="true"></span>
@@ -28,13 +50,16 @@
     </div>
     <div id="navbarGBW" class="navbar-menu" :class="[showNav?'is-active':'',showNav?'GBW-div-secondary':'']">
       <div class="navbar-start">
+        <div @click="page.schema=page.schema=='light'?'dark':'light'" class="navbar-item"><font-awesome-icon icon="moon" /></div>
         <a @click.prevent="actives.pane=pane.slug" v-for="pane in page.panes" class="navbar-item">
           {{pane.label}}
         </a>
+        <div class="is-size-1 navbar-item">{{page.schema}}</div>
       </div>
       <div class="navbar-end">
-        <div class="navbar-item">
-          <button @click="actives.pane='#PRESCREEN'" class="button is-large GBW-btn-light" type="submit">Prescreen Us!</button>
+        <div class="navbar-item calm">
+          <!-- <button @click="actives.pane='#PRESCREEN'" class="button is-large GBW-btn" type="submit">Prescreen Us!</button> -->
+          <button @click="modals.prescreen=true" class="button is-large GBW-btn" type="submit">Prescreen Us!</button>
         </div>
       </div>
     </div>
@@ -59,7 +84,7 @@
           <h2 class="subtitle">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit
           </h2>
-    <p class="title GBW-copy-default">data-focused consulting and development</p>
+    <p class="title  ">data-focused consulting and development</p>
 <h3 class="subtitle is-size-3">
   <button @click="actives.pane='#PRESCREEN'" class="button is-large GBW-btn-light" type="submit">Prescreen Us!</button>
 </h3>
@@ -84,8 +109,8 @@
  ---------++++++++++++============************   / ___ |/ ____/ ____/ _, _/ /_/ / ___ / /___/ __  /
 ---------++++++++++++============************   /_/  |_/_/   /_/   /_/ |_|\____/_/  |_\____/_/ /_/
 -->
-<!-- <section id="APPROACH" class="hero is-fullheight GBW-div-bold"> -->
-<section id="HOME" class="hero is-fullheight GBW-div-bold">
+<!-- <section id="APPROACH" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']"> -->
+<section id="HOME" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
 <div class="hero-body">
   <div class="container">
     <!-- <h1 class="title GBW-copy-default">
@@ -103,7 +128,7 @@
 <hr/>
 <p class="GBW-pullquote-right">Then it's time for us to deliver.</p>
 <p>In some cases we'll be done at this point. Otherwise it's probably time to meet again to set timelines, do technical demos, make more sketches together, and more questions. We want to get it right.</p>
-<p>Reserving the right to follow-up and iterate, of course, we'll get you where you want to be. Possibly beyond.</p>
+<p>Reserving the right to follow-up and iterate, of course, we'll get you where you want to be.</p>
 
   </div>
 </div>
@@ -124,12 +149,14 @@
 ••••••••••••••••• +++++++++++============++++++++++ •••••• /_/   /_/ |_/_____//____/\____/_/ |_/_____/_____/_/ |_/
  -->
 
-
-
-<section id="PRESCREEN" class="hero is-fullheight GBW-div-bold">
+<div :class="['modal',modals.prescreen?'is-active':'']">
+    <!--
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <section id="PRESCREEN" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
 <div class="hero-body">
   <div class="container">
-    <h1 class="title GBW-copy-default">
+    <h1 class="title">
     What's Happening?
     </h1>
 
@@ -173,7 +200,69 @@
     </a>
   </div>
 </div NB="GBW-footer-faux">
-</section>
+</section> 
+  </div>
+-->
+
+<div class="modal-background"></div>
+  <div id="PRESCREEN" :class="['modal-card',page.schema=='light'?'MO-GBW-schema-light':'MO-GBW-schema-dark']">
+    <header class="modal-card-head">
+      <p class="modal-card-title">What's Happening?</p>
+  <button @click="modals.prescreen=false" class="delete is-large" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+
+      <div class="columns">
+        <div class="column is-7 has-text-left"><p>
+       Tell us about your data problem and we will write back with our initial thoughts.</p>
+       <p>An actual human being is going to read what you write and reply, so of course don't put any sensitive information in here. Just describe what's bugging you about your data situation.
+    </p></div>
+        <div class="column is-5 has-text-justified"><div style="font-weight:800;font-size:1.5em;">No hard sell, no fee, just a conversation about your situation - free data therapy!</div></div>
+      </div>
+
+            <div class="columns">
+        <div class="column"><p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to get a burner address using a DEA service (see Tools).</p></div>
+      </div>
+
+<!--       <p>
+       Tell us about your data problem and we will write back with our initial thoughts.</p>
+       <p>An actual human being is going to read what you write and reply, so of course don't put any sensitive information in here. Just describe what's bugging you about your data situation.
+    </p>
+
+    <p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to get a burner address using a DEA service (see Tools).</p>
+
+    <div class="GBW-pullquote-right">No hard sell, no fee, just a conversation about your situation - free data therapy!</div> -->
+
+
+
+      <form>
+  <div class="input-group control has-icons-left has-icons-right">
+    <div class="field">
+    <input v-model="prescreen.email" :class="['input',isEmailValid('prescreen')?'is-success':'is-error']" type="text" placeholder="Email">
+    <span class="icon is-small is-left">
+      <font-awesome-icon icon="envelope" />
+    </span>
+    <span class="icon is-small is-right">
+      <font-awesome-icon v-if="isEmailValid('prescreen')" icon="thumbs-up" />
+      <font-awesome-icon v-if="!isEmailValid('prescreen')" icon="frown" />
+    </span>
+</div NB=".field">
+  </div NB=".input-group">
+  &nbsp;
+<textarea  v-model="prescreen.content" class="textarea" placeholder="" rows="10"></textarea>
+<button @click="addPreScreen" :class="['GBW-btn-light','button','is-large','is-light','is-fullwidth',prescreen.waiting?'is-loading':'']" :disabled="!isEmailValid('prescreen')" type="submit">{{prescreen.status}}</button>
+<p v-if="!isEmailValid('prescreen')" class="is-error has-text-centered is-size-7">(please enter a valid email address)</p>
+</form>
+    </section>
+<!--     <footer class="modal-card-foot">
+      <button class="button is-success">Save changes</button>
+      <button class="button">Cancel</button>
+    </footer> -->
+  </div>
+
+</div>
+
+
 
 
 
@@ -185,14 +274,14 @@
  about.about.aboutabout.about.aboutabout.about.about:: / ___ |/ /_/ / /_/ / /_/ / / /
 about.about.aboutabout.about.aboutabout.about.about:: /_/  |_/_____/\____/\____/ /_/
  -->
-<section id="ABOUT" class="hero is-fullheight GBW-div-bold">
+<section id="ABOUT" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
 <div class="hero-body">
   <div class="container">
-    <h1 class="title GBW-copy-default">
+    <h1 class="title">
     About Us
     </h1>
     
-<p>{{nameOfThing}} is a data-focused development and consulting firm devoted to helping our clients solve data problems and maximize data capability. We can clean, fix, and refine your data. We can optimize them. We can find external data that augment or inform yours. And we can build all manner of custom applications that present your own data back to you exactly how you need it. </p>
+<p>Volley is a data-focused development and consulting firm devoted to helping our clients solve data problems and maximize data capability. We can clean, fix, and refine your data. We can optimize them. We can find external data that augment or inform yours. And we can build all manner of custom applications that present your own data back to you exactly how you need it. </p>
 <p>We deliver solutions that allow you to focus on what you do best, on top of the powerful tool that is your own data.</p>
 
 
@@ -214,15 +303,15 @@ about.about.aboutabout.about.aboutabout.about.about:: /_/  |_/_____/\____/\____/
 contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / ___ / /___  / /
  contact.contact.contact.contact........... /_//_/  \____/\____/_/ |_/ /_/ /_/  |_\____/ /_/
  -->
-<section id="CONTACT" class="hero is-fullheight GBW-div-bold">
+<section id="CONTACT" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
 <div class="hero-body">
   <div class="container">
-    <h1 class="title GBW-copy-default">
+    <h1 class="title">
     Contact Us
     </h1>
 
     <p>
-       If you're not sure you want to talk to us (!) feel free to use our anonymous prescreen form <a @click.prevent="actives.pane='#PRESCREEN'" href="#">here</a>. Otherwise, it would be great to hear from you (optionally telling us a little about your situation).
+       If you're not sure you want to talk to us (!) feel free to use our anonymous prescreen form <a @click.prevent="modals.prescreen=true" href="#">here</a>. Otherwise, it would be great to hear from you (optionally telling us a little about your situation).
     </p>
 
     <p>
@@ -273,11 +362,11 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
  •••••••••••••••••••••••••••••••••••••••••••••••••    / / / /_/ / /_/ / /______/ /
 •••••••••••••••••••••••••••••••••••••••••••••••••    /_/  \____/\____/_____/____/
  -->
-<section id="TOOLS" class="hero is-fullheight GBW-div-invert">
+<section id="TOOLS" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
 <div class="hero-body">
   <div class="container">
 
-    <h1 class="title GBW-copy-default">
+    <h1 class="title">
     Tools
     </h1>
     <h2 class="subtitle has-text-grey-light">
@@ -310,7 +399,7 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
 </section>
 
 
-<footer class="footer" id="GBW-footer">
+<footer id="GBW-footer" :class="['footer',page.schema=='light'?'F-GBW-schema-light':'F-GBW-schema-dark']">
   <div class="columns">
     
   <div class="column is-one-third"></div NB=".column">
@@ -358,7 +447,7 @@ import { db } from '../main'
 export default {
   components: {
   },
-  name: "Volley Consulting",
+  name: "VolleyConsulting",
   created: function() {
     this.CONFIG = CONFIGG.mode=="prod"?CONFIGG.prod:CONFIGG.dev
     this.actives = {
@@ -367,15 +456,46 @@ export default {
         updatekey: (this.$route.params.updatekey) ? this.$route.params.updatekey : null,
         geom: null
       }
-  },
+
+      
+
+  //     this.axios.get("https://api.ipify.org?format=json", function(data) { 
+  
+  // this.axios.get(`http://api.ipstack.com/data.ip?access_key=90464beedcf2fbaf1fa958adfa9b720f&output=json`,(data)=>{
+  //   console.log('ipstack data:',data);
+  //   alert(data)
+  // })})
+
+
+
+  },//created
   beforeDestroy: function() {
     window.removeEventListener('keydown', this.keyMonitor)
   },
   mounted: function() {
 
+// this.axios.get(`http://worldtimeapi.org/api/ip`,{"accept": "application/json" })
+//             .then((wtarezult) => {
+              
+//               // console.log("wtarezult", wtarezult);
+            
+//             // console.log('calcdhour:',this.$MOMENT(wtarezult.data.datetime).hour())
+//             console.log('fakedhour:',this.$MOMENT("2020-08-22T15:16:08.735098-04:00").hour())
+            
+//         }, (error) => {
+//             console.log('FAILED...', error);
+            
+//         })
+
+let hour = this.$MOMENT("2020-08-22T22:16:08.735098-04:00").hour();
+this.page.schema=(hour>8 && hour <21) ?'light':'dark'
+// console.log('fakedhour:',)
+            
     window.document.body.onscroll = ()=>{
     this.actives.pane=null
 }
+
+window.addEventListener('keydown', this.keyMonitor)
 
   },
   firestore () {
@@ -386,19 +506,23 @@ export default {
   data() {
     return {
       FONT:'Nunito',
-      nameOfThing:'Volley',
       CONFIG: null,
       showNav: false,
       loadings: { maplayer: false, app: false, popupopen: false },
+      modals: { prescreen: false },
       page: {
         splayed: false,
+        schema:'light',
+        nameOfThing:'Volley Consulting',
+        descriptionOfThing:'',
+        keywordsForThing:['data consulting','data cleanup','custom development'],
         panes: [{
-          label: '',
+          label: 'Your Situation',
           slug: '#HOME'
         },
         // { label: 'M1', slug: '#M1' }, 
         // { label: 'Approach',slug: '#APPROACH' },
-        { label: 'Your Situation', slug: '#PRESCREEN' },
+        // { label: 'Your Situation', slug: '#PRESCREEN' },
         { label: 'Contact Us',slug: '#CONTACT' },
         { label: 'Tools',slug: '#TOOLS' },
         { label: 'About',slug: '#ABOUT' }
@@ -422,7 +546,7 @@ export default {
     },
     sendEmailPrescreen: function() {
       let O={reply_to:this.prescreen.email,prescreenBody:this.prescreen.content}
-      console.log(O)
+      // console.log(O)
       EMAILJS.send('gmail', 'gbw_prescreen',O , 'user_B6haXsW376PCoTkyZ4eYy')
         .then((result) => {
             console.log('SUCCESS!', result.status, result.text);
@@ -441,7 +565,7 @@ export default {
       EMAILJS.send('gmail', 'gbw_contact',O , 'user_B6haXsW376PCoTkyZ4eYy')
         .then((result) => {
             console.log('SUCCESS!', result.status, result.text);
-            this.contact.status='tnx!'
+            this.contact.status='TNX! We will be eager to reply.'
         }, (error) => {
             console.log('FAILED...', error);
             this.contact.status='plz try again'
@@ -456,7 +580,6 @@ export default {
       db.collection('prescreens').add({replied:false,reply_to:this.prescreen.email,prescreenBody:this.prescreen.content})
       .then(ref => {
 this.sendEmailPrescreen()
-        console.log("ref", ref);
 
 })
     },
@@ -473,9 +596,20 @@ this.sendEmailContact()
     keyMonitor: function(e) {
 
       if (e.altKey) { this.page.splayed = !this.page.splayed }
-      if (e.key.toLowerCase() == 'escape') { this.modals = { settings: false } }
+      if (e.key.toLowerCase() == 'escape') { 
+        // this.$_.each(modals,mo=>{mo=false})
+        /*this.modals=this.$_.mapObject(this.modals, (mov, mok)=>{
+  return {mov:false}
+});*/
+this.modals=this.$_.mapObject(this.modals,(mo,mk)=>{return mk=false});
+      }
 
-    }
+    }//keymonitor
+  ,getColor: function(el){
+
+
+
+  }//getcolor
 
   } //methods
   ,watch: {
