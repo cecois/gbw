@@ -54,7 +54,6 @@
         <a @click.prevent="actives.pane=pane.slug" v-for="pane in page.panes" class="navbar-item">
           {{pane.label}}
         </a>
-        <div class="is-size-1 navbar-item">{{page.schema}}</div>
       </div>
       <div class="navbar-end">
         <div class="navbar-item calm">
@@ -116,8 +115,33 @@
     <!-- <h1 class="title GBW-copy-default">
     Our Approach
     </h1> -->
-<p class="GBW-pullquote-right">We do. And we love it.</p>
-<p>Probably you know why you're here: you know that <em>something</em> more can be done with your data.</p>
+
+<div class="columns">
+  
+  <div class="column is-one-half is-size-3">You know that <em>something</em> more can be done with your data.</div>
+  
+  <div v-if="page.schema=='dark'" class="GBW-branding column is-one-half has-text-centered"><img width=250px id="GBW-iso-logo" src="@/assets/volley-logo-light.svg" ></img>
+  <p>Volley</p>
+    <p style="padding-top:0;font-variant:small-caps;">Consulting</p>
+  </div>
+  
+  <div v-else class="GBW-branding column is-one-half has-text-centered"><img height="100px" id="GBW-iso-logo" src="@/assets/volley-logo-dark.svg" ></img>
+    <p>Volley</p>
+    <p style="padding-top:0;font-variant:small-caps;">Consulting</p>
+  </div>
+
+
+</div nb="/.columns">
+
+<div class="columns">
+  <div class="column is-one-half">
+    <p>Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
+<p>But who in your organization has the time for this?</p>
+  </div>
+</div nb="/.columns">
+
+<!-- <p class="GBW-pullquote-right icon-volley-logo"></p> -->
+<!-- <p>Probably you know why you're here: </p>
 <p>Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
 <p>But who in your organization has the time for this?</p>
 <hr/>
@@ -128,7 +152,7 @@
 <hr/>
 <p class="GBW-pullquote-right">Then it's time for us to deliver.</p>
 <p>In some cases we'll be done at this point. Otherwise it's probably time to meet again to set timelines, do technical demos, make more sketches together, and more questions. We want to get it right.</p>
-<p>Reserving the right to follow-up and iterate, of course, we'll get you where you want to be.</p>
+<p>Reserving the right to follow-up and iterate, of course, we'll get you where you want to be.</p> -->
 
   </div>
 </div>

@@ -26,6 +26,8 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 Vue.use(VUEFIRESTORE)
 
+import '@/assets/fontello/css/fontello.css'
+
 import {
 	library
 } from '@fortawesome/fontawesome-svg-core'

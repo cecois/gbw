@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2020 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="volley-logo" unicode="&#xe800;" d="M1079 720a130 130 0 0 0-130-130 130 130 0 0 0-130 130 130 130 0 0 0 130 130 130 130 0 0 0 130-130z m-819-4a130 130 0 0 0-130-130 130 130 0 0 0-130 130 130 130 0 0 0 130 130 130 130 0 0 0 130-130z m391-736a130 130 0 0 0-130-130 130 130 0 0 0-130 130 130 130 0 0 0 130 130 130 130 0 0 0 130-130z m-473 630l337-501m362 502l-362-503" horiz-adv-x="1079" />
+</font>
+</defs>
+</svg>
