@@ -1,9 +1,10 @@
 // @import url('https://fonts.googleapis.com/css?family=Abel|Arimo|Be+Vietnam|Cute+Font|Hind|Karla|Lato|Nunito|Open+Sans|PT+Sans+Narrow|Source+Sans+Pro|Titillium+Web|Varela+Round|ZCOOL+QingKe+HuangYou&display=swap');
 
-@import url('https://fonts.googleapis.com/css?family=Nunito|Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto|Josefin+Sans&display=swap');
 
 // $GBW-font-branded:'Cute Font', cursive;
-$GBW-font-copy: 'Nunito', sans-serif;
+// $GBW-font-copy: 'Nunito', sans-serif;
+$GBW-font-copy: 'Roboto', sans-serif;
 $GBW-font-brand: 'Josefin Sans', sans-serif;
 $GBW-font-input: 'Titillium Web', sans-serif;
 // 'Josefin Sans', sans-serif;
@@ -49,6 +50,7 @@ $GBW-quaternary: rgba(93, 115, 126, 1);
 }
 
 body{
+  font-family:$GBW-font-copy;
   padding:0;margin:0;
   p{
     padding:1em 1em 0 1em;
@@ -365,7 +367,6 @@ border-top:1px solid $GBW-white;
 .MO-GBW-schema-dark{
   .modal-card{header{.modal-card-head{background-color:red;}}}
   color:$GBW-primary;
-  // background-color:rgba(244,244,244,.9);
   a{color:$GBW-quaternary;
       &:hover{
         color:lighten($GBW-default,12%);
@@ -375,9 +376,8 @@ border-top:1px solid $GBW-white;
 
 .MO-GBW-schema-light{
   .modal-card{header{.modal-card-head{background-color:pink;}}}
-  color:$GBW-white;
+  color:$GBW-primary;
   font-weight:800;
-  // background-color:rgba(244,244,244,.9);
   a{color:$GBW-quaternary;
       &:hover{
         color:lighten($GBW-primary,12%);

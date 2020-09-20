@@ -118,21 +118,21 @@
 
 <div class="columns">
   
-  <div class="pt-6column is-one-half"><p class="pl-0 pt-6 is-size-3">You know that <em>something</em> more</p><p class="pl-6 pt-0 is-size-3">can be done with your data.</p>
+  <div class="column is-one-half"><p class="has-text-weight-bold pl-0 is-size-3">You know that <em>something</em> more can be done with your data.</p>
 
-<p class="pt-4 is-size-5 is-italic">Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
-<p class="is-size-5 is-italic">But who in your organization has the time and acumen for this?</p>
+<p class="pt-6 is-size-5">Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
+<p class="is-size-5">But who in your organization has the time and acumen for this?</p>
 
-<p class="pl-0 pt-6 is-size-3">We do.</p>
+<p class="has-text-weight-bold pl-0 pt-6 is-size-3">We do.</p>
 
   </div>
   
-  <div v-if="page.schema=='dark'" class="GBW-branding column is-one-half has-text-centered"><img width=250px id="GBW-iso-logo" src="@/assets/volley-logo-light.svg" ></img>
+  <div v-if="page.schema=='dark'" class="pt-6 GBW-branding column is-one-half has-text-centered"><img width=250px id="GBW-iso-logo" src="@/assets/volley-logo-light.svg" ></img>
   <p>Volley</p>
     <p style="padding-top:0;font-variant:small-caps;">Consulting</p>
   </div>
   
-  <div v-else class="GBW-branding column is-one-half has-text-centered"><img width=250px id="GBW-iso-logo" src="@/assets/volley-logo-dark.svg" ></img>
+  <div v-else class="pt-6 GBW-branding column is-one-half has-text-centered"><img width=250px id="GBW-iso-logo" src="@/assets/volley-logo-dark.svg" ></img>
     <p>Volley</p>
     <p style="padding-top:0;font-variant:small-caps;">Consulting</p>
   </div>
@@ -306,14 +306,14 @@
 about.about.aboutabout.about.aboutabout.about.about:: /_/  |_/_____/\____/\____/ /_/
  -->
 <section id="ABOUT" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
-<div class="hero-body">
+<div class="hero-body is-size-5">
   <div class="container">
     <h1 class="title">
     About Us
     </h1>
     
 <p>Volley is a data-focused development and consulting firm devoted to helping our clients solve data problems and maximize data capability. We can clean, fix, and refine your data. We can optimize them. We can find external data that augment or inform yours. And we can build all manner of custom applications that present your own data back to you exactly how you need it. </p>
-<p>We deliver solutions that allow you to focus on what you do best, on top of the powerful tool that is your own data.</p>
+<p>We deliver solutions that allow you to focus on what you do best - <em>on top of</em> the powerful tool that is your own data.</p>
 
 
   </div>
@@ -334,7 +334,7 @@ about.about.aboutabout.about.aboutabout.about.about:: /_/  |_/_____/\____/\____/
 contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / ___ / /___  / /
  contact.contact.contact.contact........... /_//_/  \____/\____/_/ |_/ /_/ /_/  |_\____/ /_/
  -->
-<section id="CONTACT" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
+<section id="CONTACT" :class="['hero','is-size-5','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
 <div class="hero-body">
   <div class="container">
     <h1 class="title">
@@ -342,7 +342,7 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
     </h1>
 
     <p>
-       If you're not sure you want to talk to us (!) feel free to use our anonymous prescreen form <a @click.prevent="modals.prescreen=true" href="#">here</a>. Otherwise, it would be great to hear from you (optionally telling us a little about your situation).
+       If you're not sure you want to talk to us feel free to use our anonymous prescreen form <a @click.prevent="modals.prescreen=true" href="#">here</a>. Otherwise, it would be great to hear from you (optionally telling us a little about your situation).
     </p>
 
     <p>
@@ -505,21 +505,23 @@ export default {
   },
   mounted: function() {
 
-// this.axios.get(`http://worldtimeapi.org/api/ip`,{"accept": "application/json" })
-//             .then((wtarezult) => {
+this.axios.get(`http://worldtimeapi.org/api/ip`,{"accept": "application/json" })
+            .then((wtarezult) => {
               
-//               // console.log("wtarezult", wtarezult);
+              // console.log("wtarezult", wtarezult);
             
-//             // console.log('calcdhour:',this.$MOMENT(wtarezult.data.datetime).hour())
-//             console.log('fakedhour:',this.$MOMENT("2020-08-22T15:16:08.735098-04:00").hour())
-            
-//         }, (error) => {
-//             console.log('FAILED...', error);
-            
-//         })
+            // console.log('calcdhour:',this.$MOMENT(wtarezult.data.datetime).hour())
+            // console.log('fakedhour:',this.$MOMENT("2020-08-22T15:16:08.735098-04:00").hour())
 
-let hour = this.$MOMENT("2020-08-22T22:16:08.735098-04:00").hour();
+            let hour = this.$MOMENT(wtarezult.data.datetime).hour();
 this.page.schema=(hour>8 && hour <21) ?'light':'dark'
+            
+        }, (error) => {
+            console.log('FAILED...', error);
+            
+        })
+
+
 // console.log('fakedhour:',)
             
     window.document.body.onscroll = ()=>{
@@ -536,7 +538,7 @@ window.addEventListener('keydown', this.keyMonitor)
   },
   data() {
     return {
-      FONT:'Nunito',
+      FONT:'Roboto',
       CONFIG: null,
       showNav: false,
       loadings: { maplayer: false, app: false, popupopen: false },
