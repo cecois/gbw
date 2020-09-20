@@ -118,14 +118,21 @@
 
 <div class="columns">
   
-  <div class="column is-one-half is-size-3">You know that <em>something</em> more can be done with your data.</div>
+  <div class="pt-6column is-one-half"><p class="pl-0 pt-6 is-size-3">You know that <em>something</em> more</p><p class="pl-6 pt-0 is-size-3">can be done with your data.</p>
+
+<p class="pt-4 is-size-5 is-italic">Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
+<p class="is-size-5 is-italic">But who in your organization has the time and acumen for this?</p>
+
+<p class="pl-0 pt-6 is-size-3">We do.</p>
+
+  </div>
   
   <div v-if="page.schema=='dark'" class="GBW-branding column is-one-half has-text-centered"><img width=250px id="GBW-iso-logo" src="@/assets/volley-logo-light.svg" ></img>
   <p>Volley</p>
     <p style="padding-top:0;font-variant:small-caps;">Consulting</p>
   </div>
   
-  <div v-else class="GBW-branding column is-one-half has-text-centered"><img height="100px" id="GBW-iso-logo" src="@/assets/volley-logo-dark.svg" ></img>
+  <div v-else class="GBW-branding column is-one-half has-text-centered"><img width=250px id="GBW-iso-logo" src="@/assets/volley-logo-dark.svg" ></img>
     <p>Volley</p>
     <p style="padding-top:0;font-variant:small-caps;">Consulting</p>
   </div>
@@ -135,9 +142,9 @@
 
 <div class="columns">
   <div class="column is-one-half">
-    <p>Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
-<p>But who in your organization has the time for this?</p>
+    
   </div>
+  <div class="column"></div>
 </div nb="/.columns">
 
 <!-- <p class="GBW-pullquote-right icon-volley-logo"></p> -->
