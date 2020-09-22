@@ -342,7 +342,7 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
     </h1>
 
     <p>
-       If you're not sure you want to talk to us feel free to use our anonymous prescreen form <a @click.prevent="modals.prescreen=true" href="#">here</a>. Otherwise, it would be great to hear from you (optionally telling us a little about your situation).
+       If you're not sure you want to talk to us feel free to use our anonymous prescreen form <a @click.prevent="modals.prescreen=true" href="#">here</a>. Otherwise, it would be great to hear from you.
     </p>
 
     <p>
@@ -403,9 +403,40 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
     <h2 class="subtitle has-text-grey-light">
       There's a chance you don't need us at all! Here are some common tools for working with data, information, and the systems that consume and produce them.
     </h2>
-
-  <h4 class="is-size-4">eMail Subaddressing</h4>
-    <nav class="level">
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-info">
+          <p class="title"><a href="https://openrefine.org/">OpenRefine</a></p>
+          
+          <p class="image is-128x128 is-pulled-left">
+            <img src="@/assets/logo-ext-openrefine.svg">
+    </p>
+          <p class="">OpenRefine gets it. People with messy data don't always know the myriad ways *in which* they're messy. So if nothing else (there's actually plenty else), OpenRefine lets you interrogate (and optionally fix) your data, row-by-row or problem-by-problem or facet-by-facet. There's a very powerful scripting engine in there for bulk operations and such, but the first value to notice will be how *clearly* you'll be able to see what you have. Finally, maybe.</p>
+        </article>
+        <!-- <article class="tile is-child notification is-warning">
+          <p class="title">...tiles</p>
+          <p class="subtitle">Bottom tile</p>
+        </article> -->
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-info">
+          <p class="title"><a href="https://qgis.org/en/site/">QGIS</a></p>
+        
+    <p class="image is-128x128 is-pulled-right">
+          <img src="@/assets/logo-ext-qgis.svg">
+    </p>
+          <p>QGIS is a very powerful (very free) open source GIS. A GIS is a software that connects data to space - think population-by-county or crime hotspots, that sort of thing.</p><p>Even if you hastily (and probably mistakenly!) presume your data don't have a spatial aspect, the tabular functionality (analysis, conversion, interrogation ,etc.) of a GIS can be worth the install. The thing absolutely comes alive, however, if your data possess even a modicum of explicit or implicit spatiality.</p>
+          
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-danger">
+        <p class="title">eMail Burners and Subaddressing</p>
+        <div class="content">
+          <nav class="level">
   <!-- Left side -->
     <div class="level-item">
       <p>
@@ -417,6 +448,58 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
 <div class="level-item has-text-centered"><p><a href="https://temp-mail.org/en/">TempMail</a></p></div>
 </nav>
 <p style="padding:0 5em 2em 5em;" class="is-size-6 has-text-italic">** There are <a href="https://duckduckgo.com/?q=email+anonymous+service+free&t=h_&df=y&ia=web">plenty of these services</a> and we're not endorsing any of them. Also — honorable mention — it's less anonymous (for obvious reasons), but if your email provider supports <a href="https://en.wikipedia.org/wiki/Email_address#Subaddressing">subaddressing</a> you can do something like this: take your email address ("Alphabet@gmail.com" let's say) and you can endlessly just append a '+' (or, often, *any* character) and then a random string to the end of it and all of these addresses will also deliver to Alphabet@gmail.com (so Alphabet+123456@gmail.com or Alphabet+tebahplA@gmail.com and so on).</p>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child notification is-success">
+      <div class="content">
+        <p class="title">US Census</p>
+        
+
+    <p class="image is-128x128 is-pulled-right">
+        <img src="@/assets/logo-ext-uscb.svg">
+    </p>
+<p>
+        The US Census Bureau -- b. 1790! -- is, by Constitutional edict, only a count of the U.S. population. But then how do you explain how we know that there are <a href="https://data.census.gov/cedsci/map?q=Disability&g=0400000US05.050000&tid=ACSST1Y2019.S1810&hidePreview=false&vintage=2019&layer=VT_2019_050_00_PY_D1&cid=S1810_C03_001E&mode=customize">three counties</a> with over 17.7% of the total civilian noninstitutionalized population living with a disability in Arkansas (the state most-afflicted by disability in the Union)?
+      </p>
+
+      <p>Or how do we know that <a href="https://data.census.gov/cedsci/table?q=commute&g=0200000US2&tid=ACSST1Y2019.S0802&hidePreview=true">half of the country's population</a> aged 25 to 44 take public transportation to work and that the number dwindles to 7.1% by the time we are 55-59 years old? It's kind of amazing.</p>
+
+      <p>The topics go on and on, and sometimes with remarkable granularity. For instance, did you know that "a privy or chemical toilet is not considered a flush toilet"? Your <a href="https://www2.census.gov/programs-surveys/ahs/2019/2019%20AHS%20Definitions.pdf">Census Bureau does</a>! And these data sprawl out and down across <a href="https://www.census.gov/programs-surveys/surveys-programs.html">far more programs</a> than just the famous Decennial Census.</p>
+
+      <p>Not to be lost in the sheer expanse of Census data, however, is how easy and valuable it can be to <em>connect</em> to them. Given most of the collected attributes are about a specific place (a County, a Block, a Zip Code Tabulation Area, etc.) it's often almost trivial to get this or that fact about an area or areas that are specific to (and englightening of) your data.</p>
+    
+        <div class="content">
+          <!-- Content -->
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+
+<!--
+                           .                     _
+   ___  , _ , _     ___  `  |          ____ ,   . \ ___
+ .'   ` |' `|' `.  /   ` |  |         (     |   | |/   \
+ |----' |   |   | |    | |  |         `--.  |   | |    `
+ `.___, /   '   / `.__/| / /\__      \___.' `._/| `___,'
+
+  <h4 class="is-size-4">eMail Subaddressing</h4>
+    <nav class="level">
+    <div class="level-item">
+      <p>
+        <a href="https://maildrop.cc/">Maildrop</a>
+      </p>
+    </div>
+    <div class="level-item has-text-centered"><p><a href="https://www.guerrillamail.com/">Guerrilla Mail</a></p></div>
+<div class="level-item has-text-centered"><p><a href="http://www.fakeinbox.com/">Fake Inbox</a></p></div>
+<div class="level-item has-text-centered"><p><a href="https://temp-mail.org/en/">TempMail</a></p></div>
+</nav>
+<p style="padding:0 5em 2em 5em;" class="is-size-6 has-text-italic">** There are <a href="https://duckduckgo.com/?q=email+anonymous+service+free&t=h_&df=y&ia=web">plenty of these services</a> and we're not endorsing any of them. Also — honorable mention — it's less anonymous (for obvious reasons), but if your email provider supports <a href="https://en.wikipedia.org/wiki/Email_address#Subaddressing">subaddressing</a> you can do something like this: take your email address ("Alphabet@gmail.com" let's say) and you can endlessly just append a '+' (or, often, *any* character) and then a random string to the end of it and all of these addresses will also deliver to Alphabet@gmail.com (so Alphabet+123456@gmail.com or Alphabet+tebahplA@gmail.com and so on).</p>
+ -->
   
   </div NB=".container">
 </div NB=".hero-body">

@@ -201,6 +201,10 @@ footer{
 }//g-gbw-schema-dark
 
 .M-GBW-schema-light{
+ 
+  .tile.is-child{background-color:rgba(198, 198, 199,.1);color:$GBW-primary;}
+
+
     .title{
   color:$GBW-primary;  
   }
@@ -211,6 +215,9 @@ footer{
 
 
 .M-GBW-schema-dark{
+ 
+  .tile.is-child{background-color:$GBW-tertiary;}
+
     .title{
   color:$GBW-white;  
   }
