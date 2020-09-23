@@ -252,7 +252,7 @@
       </div>
 
             <div class="columns">
-        <div class="column"><p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to get a burner address using a DEA service (see Tools).</p></div>
+        <div class="column"><p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to get a burner address using a DEA service.</p></div>
       </div>
 
 <!--       <p>
@@ -392,7 +392,7 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
   •••••••••••••••••••••••••••••••••••••••••••••••••    / / / / / / / / / /   \__ \
  •••••••••••••••••••••••••••••••••••••••••••••••••    / / / /_/ / /_/ / /______/ /
 •••••••••••••••••••••••••••••••••••••••••••••••••    /_/  \____/\____/_____/____/
- -->
+ 
 <section id="TOOLS" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
 <div class="hero-body">
   <div class="container">
@@ -415,10 +415,10 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
     </p>
           <p class="">OpenRefine gets it. People with messy data don't always know the myriad ways *in which* they're messy. So if nothing else (there's actually plenty else), OpenRefine lets you interrogate (and optionally fix) your data, row-by-row or problem-by-problem or facet-by-facet. There's a very powerful scripting engine in there for bulk operations and such, but the first value to notice will be how *clearly* you'll be able to see what you have. Finally, maybe.</p>
         </article>
-        <!-- <article class="tile is-child notification is-warning">
+         <article class="tile is-child notification is-warning">
           <p class="title">...tiles</p>
           <p class="subtitle">Bottom tile</p>
-        </article> -->
+        </article> 
       </div>
       <div class="tile is-parent">
         <article class="tile is-child notification is-info">
@@ -437,7 +437,6 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
         <p class="title">eMail Burners and Subaddressing</p>
         <div class="content">
           <nav class="level">
-  <!-- Left side -->
     <div class="level-item">
       <p>
         <a href="https://maildrop.cc/">Maildrop</a>
@@ -472,34 +471,12 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
       <p>Not to be lost in the sheer expanse of Census data, however, is how easy and valuable it can be to <em>connect</em> to them. Given most of the collected attributes are about a specific place (a County, a Block, a Zip Code Tabulation Area, etc.) it's often almost trivial to get this or that fact about an area or areas that are specific to (and englightening of) your data.</p>
     
         <div class="content">
-          <!-- Content -->
+
         </div>
       </div>
     </article>
   </div>
 </div>
-
-
-<!--
-                           .                     _
-   ___  , _ , _     ___  `  |          ____ ,   . \ ___
- .'   ` |' `|' `.  /   ` |  |         (     |   | |/   \
- |----' |   |   | |    | |  |         `--.  |   | |    `
- `.___, /   '   / `.__/| / /\__      \___.' `._/| `___,'
-
-  <h4 class="is-size-4">eMail Subaddressing</h4>
-    <nav class="level">
-    <div class="level-item">
-      <p>
-        <a href="https://maildrop.cc/">Maildrop</a>
-      </p>
-    </div>
-    <div class="level-item has-text-centered"><p><a href="https://www.guerrillamail.com/">Guerrilla Mail</a></p></div>
-<div class="level-item has-text-centered"><p><a href="http://www.fakeinbox.com/">Fake Inbox</a></p></div>
-<div class="level-item has-text-centered"><p><a href="https://temp-mail.org/en/">TempMail</a></p></div>
-</nav>
-<p style="padding:0 5em 2em 5em;" class="is-size-6 has-text-italic">** There are <a href="https://duckduckgo.com/?q=email+anonymous+service+free&t=h_&df=y&ia=web">plenty of these services</a> and we're not endorsing any of them. Also — honorable mention — it's less anonymous (for obvious reasons), but if your email provider supports <a href="https://en.wikipedia.org/wiki/Email_address#Subaddressing">subaddressing</a> you can do something like this: take your email address ("Alphabet@gmail.com" let's say) and you can endlessly just append a '+' (or, often, *any* character) and then a random string to the end of it and all of these addresses will also deliver to Alphabet@gmail.com (so Alphabet+123456@gmail.com or Alphabet+tebahplA@gmail.com and so on).</p>
- -->
   
   </div NB=".container">
 </div NB=".hero-body">
@@ -518,10 +495,8 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
     
   <div class="column is-one-third"></div NB=".column">
 <div class="column is-one-third">
-<!-- middl -->
 </div NB=".column">
 <div class="column is-one-third has-text-right">
-  <!-- logo: <a href="https://www.vecteezy.com/vector-art/157676-music-notes">Music Notes by Vecteezy</a> -->
 </div NB=".column">
 </div NB=".columns">
   <div class="is-pulled-left">
@@ -531,6 +506,8 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
   </div NB="is-pulled-left">
 </footer>
 </section>
+-->
+
 
 <!-- 
     •••••••••••••••••••••••••••••••••••••••••••••••••••••• __  __________________
@@ -640,7 +617,7 @@ window.addEventListener('keydown', this.keyMonitor)
         // { label: 'Approach',slug: '#APPROACH' },
         // { label: 'Your Situation', slug: '#PRESCREEN' },
         { label: 'Contact Us',slug: '#CONTACT' },
-        { label: 'Tools',slug: '#TOOLS' },
+        // { label: 'Tools',slug: '#TOOLS' },
         { label: 'About',slug: '#ABOUT' }
         ]
       },
