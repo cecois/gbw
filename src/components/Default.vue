@@ -33,8 +33,9 @@
    -->
   <vue-headful 
   :title="page.nameOfThing"
-  description="Description from vue-headful"
+  :description="page.descriptionOfThing"
   :keywords="page.keywordsForThing"
+  url: 'http://volleyconsulting.com',
   lang='en'
   :head="{
         'meta[charset]': {charset: 'utf-8'}
@@ -607,7 +608,7 @@ window.addEventListener('keydown', this.keyMonitor)
         splayed: false,
         schema:'light',
         nameOfThing:'Volley Consulting',
-        descriptionOfThing:'',
+        descriptionOfThing:'Volley Consulting is a small firm from Brookline, Massachusetts that brings years and years of experience with a wide variety of data problems and solutions from across many, many domains.',
         keywordsForThing:['data consulting','data cleanup','custom development'],
         panes: [{
           label: 'Your Situation',

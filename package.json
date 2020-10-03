@@ -1,5 +1,5 @@
 {
-	"name": "Volley Consulting",
+	"name": "VolleyConsulting",
 	"version": "1.0.0",
 	"description": "a vuejs-built consulting business site",
 	"author": "cecois <cecmcgee@gmail.com>",
@@ -26,6 +26,7 @@
 		"jquery": "^3.4.1",
 		"moment": "^2.24.0",
 		"oimo": "^1.0.9",
+		"sitemap-webpack-plugin": "^0.8.1",
 		"three": "^0.113.2",
 		"underscore": "^1.8.3",
 		"vue": "^2.5.2",
@@ -98,8 +99,8 @@
 		"npm": ">= 3.0.0"
 	},
 	"browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+		"> 1%",
+		"last 2 versions",
+		"not ie <= 8"
+	]
 }
