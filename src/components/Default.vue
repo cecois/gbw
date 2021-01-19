@@ -1,24 +1,7 @@
 <template>
-<div id="GBW-vue-root" :style="`font-family:${FONT}`" :class="[page.schema=='light'?'G-GBW-schema-light':'G-GBW-schema-dark']">
-  <vue-particles style="position:absolute;top: 0;left: 0;width: 100%;height: 100%;"
-  :color="page.schema=='light'?'#372554':'#dedede'"
-  :particleOpacity="0.2"
-  :particlesNumber="101"
-  shapeType="edge"
-  :particleSize="3"
-  linesColor="#dedede"
-  :linesWidth="1"
-  :lineLinked="true"
-  :lineOpacity="0.2"
-  :linesDistance="150"
-  :moveSpeed="1"
-  :hoverEffect="false"
-  hoverMode="grab"
-  :clickEffect="false"
-  clickMode="push"
-  />
-
-  <!-- 
+  <div id="GBW-vue-root" :style="`font-family:${FONT}`" :class="[page.schema=='light'?'G-GBW-schema-light':'G-GBW-schema-dark']">
+    <vue-particles style="position:absolute;top: 0;left: 0;width: 100%;height: 100%;" :color="page.schema=='light'?'#372554':'#dedede'" :particleOpacity="0.2" :particlesNumber="101" shapeType="edge" :particleSize="3" linesColor="#dedede" :linesWidth="1" :lineLinked="true" :lineOpacity="0.2" :linesDistance="150" :moveSpeed="1" :hoverEffect="false" hoverMode="grab" :clickEffect="false" clickMode="push" />
+    <!-- 
 
 <title></title>
 
@@ -31,41 +14,33 @@
     <meta name="twitter:description">
 
    -->
-  <vue-headful 
-  :title="page.nameOfThing"
-  :description="page.descriptionOfThing"
-  :keywords="page.keywordsForThing"
-  url: 'http://volleyconsulting.com',
-  lang='en'
-  :head="{
-        'meta[charset]': {charset: 'utf-8'}
-    }"
-  />
-  <nav id="GBW-nav" :class="['navbar',page.schema=='light'?'N-GBW-schema-light':'N-GBW-schema-dark']" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a role="button" class="navbar-burger burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }" aria-label="menu" aria-expanded="false" data-target="navbarGBW">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-    <div id="navbarGBW" class="navbar-menu" :class="[showNav?'is-active':'',showNav?'GBW-div-secondary':'']">
-      <div class="navbar-start">
-        <div @click="page.schema=page.schema=='light'?'dark':'light'" class="navbar-item"><font-awesome-icon icon="moon" /></div>
-        <a @click.prevent="actives.pane=pane.slug" v-for="pane in page.panes" class="navbar-item">
-          {{pane.label}}
+    <vue-headful :title="page.nameOfThing" :description="page.descriptionOfThing" :keywords="page.keywordsForThing" url="http://volleyconsulting.com" , lang='en' />
+    <nav id="GBW-nav" :class="['navbar',page.schema=='light'?'N-GBW-schema-light':'N-GBW-schema-dark']" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a role="button" class="navbar-burger burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }" aria-label="menu" aria-expanded="false" data-target="navbarGBW">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
       </div>
-      <div class="navbar-end">
-        <div class="navbar-item calm">
-          <!-- <button @click="actives.pane='#PRESCREEN'" class="button is-large GBW-btn" type="submit">Prescreen Us!</button> -->
-          <button @click="modals.prescreen=true" class="button is-large GBW-btn" type="submit">Prescreen Us!</button>
+      <div id="navbarGBW" class="navbar-menu" :class="[showNav?'is-active':'',showNav?'GBW-div-secondary':'']">
+        <div class="navbar-start">
+          <div @click="page.schema=page.schema=='light'?'dark':'light'" class="navbar-item">
+            <font-awesome-icon icon="moon" />
+          </div>
+          <a @click.prevent="actives.pane=pane.slug" v-for="pane in page.panes" class="navbar-item">
+          {{pane.label}}
+        </a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item calm">
+            <!-- <button @click="actives.pane='#PRESCREEN'" class="button is-large GBW-btn" type="submit">Prescreen Us!</button> -->
+            <button @click="modals.prescreen=true" class="button is-large GBW-btn" type="submit">Prescreen Us!</button>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-
-  <!--
+    </nav>
+    <!--
   ..........................................................         __ __  __  ______  __  _________
   ..........................................................      __/ // /_/ / / / __ \/  |/  / ____/
   ..........................................................     /_  _  __/ /_/ / / / / /|_/ / __/
@@ -100,56 +75,43 @@
 </div NB=".columns">
 </section>
   -->
-
-
-<!--
+    <!--
     ---------++++++++++++============************   ___    ____  ____  ____  ____  ___   ________  __
    ---------++++++++++++============************   /   |  / __ \/ __ \/ __ \/ __ \/   | / ____/ / / /
   ---------++++++++++++============************   / /| | / /_/ / /_/ / /_/ / / / / /| |/ /   / /_/ /
  ---------++++++++++++============************   / ___ |/ ____/ ____/ _, _/ /_/ / ___ / /___/ __  /
 ---------++++++++++++============************   /_/  |_/_/   /_/   /_/ |_|\____/_/  |_\____/_/ /_/
 -->
-<!-- <section id="APPROACH" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']"> -->
-<section id="HOME" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
-<div class="hero-body">
-  <div class="container">
-    <!-- <h1 class="title GBW-copy-default">
+    <!-- <section id="APPROACH" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']"> -->
+    <section id="HOME" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
+      <div class="hero-body">
+        <div class="container">
+          <!-- <h1 class="title GBW-copy-default">
     Our Approach
     </h1> -->
-
-<div class="columns">
-  
-  <div class="column is-one-half"><p class="has-text-weight-bold pl-0 is-size-3">You know that <em>something</em> more can be done with your data.</p>
-
-<p class="pt-6 is-size-5">Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
-<p class="is-size-5">But who in your organization has the time and acumen for this?</p>
-
-<p class="has-text-weight-bold pl-0 pt-6 is-size-3">We do.</p>
-
-  </div>
-  
-  <div v-if="page.schema=='dark'" class="pt-6 GBW-branding column is-one-half has-text-centered"><img width=250px id="GBW-iso-logo" src="@/assets/volley-logo-light.svg" ></img>
-  <p>Volley</p>
-    <p style="padding-top:0;font-variant:small-caps;">Consulting</p>
-  </div>
-  
-  <div v-else class="pt-6 GBW-branding column is-one-half has-text-centered"><img width=250px id="GBW-iso-logo" src="@/assets/volley-logo-dark.svg" ></img>
-    <p>Volley</p>
-    <p style="padding-top:0;font-variant:small-caps;">Consulting</p>
-  </div>
-
-
-</div nb="/.columns">
-
-<div class="columns">
-  <div class="column is-one-half">
-    
-  </div>
-  <div class="column"></div>
-</div nb="/.columns">
-
-<!-- <p class="GBW-pullquote-right icon-volley-logo"></p> -->
-<!-- <p>Probably you know why you're here: </p>
+          <div class="columns">
+            <div class="column is-one-half">
+              <p class="has-text-weight-bold pl-0 is-size-3">You know that <em>something</em> more can be done with your data.</p>
+              <p class="pt-6 is-size-5">Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
+              <p class="is-size-5">But who in your organization has the time and acumen for this?</p>
+              <p class="has-text-weight-bold pl-0 pt-6 is-size-3">We do.</p>
+            </div>
+            <div v-if="page.schema=='dark'" class="pt-6 GBW-branding column is-one-half has-text-centered"><img width=250px id="GBW-iso-logo" src="@/assets/volley-logo-light.svg"></img>
+              <p>Volley</p>
+              <p style="padding-top:0;font-variant:small-caps;">Consulting</p>
+            </div>
+            <div v-else class="pt-6 GBW-branding column is-one-half has-text-centered"><img width=250px id="GBW-iso-logo" src="@/assets/volley-logo-dark.svg"></img>
+              <p>Volley</p>
+              <p style="padding-top:0;font-variant:small-caps;">Consulting</p>
+            </div>
+          </div nb="/.columns">
+          <div class="columns">
+            <div class="column is-one-half">
+            </div>
+            <div class="column"></div>
+          </div nb="/.columns">
+          <!-- <p class="GBW-pullquote-right icon-volley-logo"></p> -->
+          <!-- <p>Probably you know why you're here: </p>
 <p>Perhaps you've heard about what data are doing for other companies and you're curious. Or maybe you're already convinced that your data can work better for you -- clearer insight into your operation or analyses of your clientele, let's say. Or maybe you want them cleaned up to better support or improve your current operations and workflows. Maybe you know you want an in-house or public visualization or a clean and easy API that can automate reporting or periodic analyses or real-time alerting.</p>
 <p>But who in your organization has the time for this?</p>
 <hr/>
@@ -161,28 +123,25 @@
 <p class="GBW-pullquote-right">Then it's time for us to deliver.</p>
 <p>In some cases we'll be done at this point. Otherwise it's probably time to meet again to set timelines, do technical demos, make more sketches together, and more questions. We want to get it right.</p>
 <p>Reserving the right to follow-up and iterate, of course, we'll get you where you want to be.</p> -->
-
-  </div>
-</div>
-<div class="GBW-footer-faux columns">
-  <div class="column is-1">
-    <a @click.prevent="actives.pane='#HOME'" href="">
+        </div>
+      </div>
+      <div class="GBW-footer-faux columns">
+        <div class="column is-1">
+          <a @click.prevent="actives.pane='#HOME'" href="">
       (<font-awesome-icon icon="arrow-up" />)
     </a>
-  </div>
-</div NB="GBW-footer-faux">
-</section>
-
-<!-- 
+        </div>
+      </div NB="GBW-footer-faux">
+    </section>
+    <!-- 
     ••••••••••••••••• +++++++++++============++++++++++ •••••• ____  ____  ___________ __________  _____________   __
    ••••••••••••••••• +++++++++++============++++++++++ •••••• / __ \/ __ \/ ____/ ___// ____/ __ \/ ____/ ____/ | / /
   ••••••••••••••••• +++++++++++============++++++++++ •••••• / /_/ / /_/ / __/  \__ \/ /   / /_/ / __/ / __/ /  |/ /
  ••••••••••••••••• +++++++++++============++++++++++ •••••• / ____/ _, _/ /___ ___/ / /___/ _, _/ /___/ /___/ /|  /
 ••••••••••••••••• +++++++++++============++++++++++ •••••• /_/   /_/ |_/_____//____/\____/_/ |_/_____/_____/_/ |_/
  -->
-
-<div :class="['modal',modals.prescreen?'is-active':'']">
-    <!--
+    <div :class="['modal',modals.prescreen?'is-active':'']">
+      <!--
   <div class="modal-background"></div>
   <div class="modal-content">
     <section id="PRESCREEN" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
@@ -235,28 +194,30 @@
 </section> 
   </div>
 -->
-
-<div class="modal-background"></div>
-  <div id="PRESCREEN" :class="['modal-card',page.schema=='light'?'MO-GBW-schema-light':'MO-GBW-schema-dark']">
-    <header class="modal-card-head">
-      <p class="modal-card-title">What's Happening?</p>
-  <button @click="modals.prescreen=false" class="delete is-large" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body">
-
-      <div class="columns">
-        <div class="column is-7 has-text-left"><p>
-       Tell us about your data problem and we will write back with our initial thoughts.</p>
-       <p>An actual human being is going to read what you write and reply, so of course don't put any sensitive information in here. Just describe what's bugging you about your data situation.
-    </p></div>
-        <div class="column is-5 has-text-justified"><div style="font-weight:800;font-size:1.5em;">No hard sell, no fee, just a conversation about your situation - free data therapy!</div></div>
-      </div>
-
-            <div class="columns">
-        <div class="column"><p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to get a burner address using a DEA service.</p></div>
-      </div>
-
-<!--       <p>
+      <div class="modal-background"></div>
+      <div id="PRESCREEN" :class="['modal-card',page.schema=='light'?'MO-GBW-schema-light':'MO-GBW-schema-dark']">
+        <header class="modal-card-head">
+          <p class="modal-card-title">What's Happening?</p>
+          <button @click="modals.prescreen=false" class="delete is-large" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="columns">
+            <div class="column is-7 has-text-left">
+              <p>
+                Tell us about your data problem and we will write back with our initial thoughts.</p>
+              <p>An actual human being is going to read what you write and reply, so of course don't put any sensitive information in here. Just describe what's bugging you about your data situation.
+              </p>
+            </div>
+            <div class="column is-5 has-text-justified">
+              <div style="font-weight:800;font-size:1.5em;">No hard sell, no fee, just a conversation about your situation - free data therapy!</div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to get a burner address using a DEA service.</p>
+            </div>
+          </div>
+          <!--       <p>
        Tell us about your data problem and we will write back with our initial thoughts.</p>
        <p>An actual human being is going to read what you write and reply, so of course don't put any sensitive information in here. Just describe what's bugging you about your data situation.
     </p>
@@ -264,130 +225,109 @@
     <p>All we need is <em>an</em> email address to which we reply, so if you're leery of writing into a website, please feel free to get a burner address using a DEA service (see Tools).</p>
 
     <div class="GBW-pullquote-right">No hard sell, no fee, just a conversation about your situation - free data therapy!</div> -->
-
-
-
-      <form>
-  <div class="input-group control has-icons-left has-icons-right">
-    <div class="field">
-    <input v-model="prescreen.email" :class="['input',isEmailValid('prescreen')?'is-success':'is-error']" type="text" placeholder="Email">
-    <span class="icon is-small is-left">
+          <form>
+            <div class="input-group control has-icons-left has-icons-right">
+              <div class="field">
+                <input v-model="prescreen.email" :class="['input',isEmailValid('prescreen')?'is-success':'is-error']" type="text" placeholder="Email">
+                <span class="icon is-small is-left">
       <font-awesome-icon icon="envelope" />
     </span>
-    <span class="icon is-small is-right">
+                <span class="icon is-small is-right">
       <font-awesome-icon v-if="isEmailValid('prescreen')" icon="thumbs-up" />
       <font-awesome-icon v-if="!isEmailValid('prescreen')" icon="frown" />
     </span>
-</div NB=".field">
-  </div NB=".input-group">
-  &nbsp;
-<textarea  v-model="prescreen.content" class="textarea" placeholder="" rows="10"></textarea>
-<button @click="addPreScreen" :class="['GBW-btn-light','button','is-large','is-light','is-fullwidth',prescreen.waiting?'is-loading':'']" :disabled="!isEmailValid('prescreen')" type="submit">{{prescreen.status}}</button>
-<p v-if="!isEmailValid('prescreen')" class="is-error has-text-centered is-size-7">(please enter a valid email address)</p>
-</form>
-    </section>
-<!--     <footer class="modal-card-foot">
+              </div NB=".field">
+            </div NB=".input-group">
+            &nbsp;
+            <textarea v-model="prescreen.content" class="textarea" placeholder="" rows="10"></textarea>
+            <button @click="addPreScreen" :class="['GBW-btn-light','button','is-large','is-light','is-fullwidth',prescreen.waiting?'is-loading':'']" :disabled="!isEmailValid('prescreen')" type="submit">{{prescreen.status}}</button>
+            <p v-if="!isEmailValid('prescreen')" class="is-error has-text-centered is-size-7">(please enter a valid email address)</p>
+          </form>
+        </section>
+        <!--     <footer class="modal-card-foot">
       <button class="button is-success">Save changes</button>
       <button class="button">Cancel</button>
     </footer> -->
-  </div>
-
-</div>
-
-
-
-
-
-
-<!-- 
+      </div>
+    </div>
+    <!-- 
     about.about.aboutabout.about.aboutabout.about.about:: ___    ____  ____  __  ________
    about.about.aboutabout.about.aboutabout.about.about:: /   |  / __ )/ __ \/ / / /_  __/
   about.about.aboutabout.about.aboutabout.about.about:: / /| | / __  / / / / / / / / /
  about.about.aboutabout.about.aboutabout.about.about:: / ___ |/ /_/ / /_/ / /_/ / / /
 about.about.aboutabout.about.aboutabout.about.about:: /_/  |_/_____/\____/\____/ /_/
  -->
-<section id="ABOUT" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
-<div class="hero-body is-size-5">
-  <div class="container">
-    <h1 class="title">
+    <section id="ABOUT" :class="['hero','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
+      <div class="hero-body is-size-5">
+        <div class="container">
+          <h1 class="title">
     About Us
     </h1>
-    
-<p>Volley is a data-focused development and consulting firm devoted to helping our clients solve data problems and maximize data capability. We can clean, fix, and refine your data. We can optimize them. We can find external data that augment or inform yours. And we can build all manner of custom applications that present your own data back to you exactly how you need it. </p>
-<p>We deliver solutions that allow you to focus on what you do best - <em>on top of</em> the powerful tool that is your own data.</p>
-
-
-  </div>
-</div>
-<div class="GBW-footer-faux columns">
-  <div class="column is-1">
-    <a @click.prevent="actives.pane='#HOME'" href="">
+          <p>Volley is a data-focused development and consulting firm devoted to helping our clients solve data problems and maximize data capability. We can clean, fix, and refine your data. We can optimize them. We can find external data that augment or inform yours. And we can build all manner of custom applications that present your own data back to you exactly how you need it. </p>
+          <p>We deliver solutions that allow you to focus on what you do best - <em>on top of</em> the powerful tool that is your own data.</p>
+        </div>
+      </div>
+      <div class="GBW-footer-faux columns">
+        <div class="column is-1">
+          <a @click.prevent="actives.pane='#HOME'" href="">
       (<font-awesome-icon icon="arrow-up" />)
     </a>
-  </div>
-</div NB="GBW-footer-faux">
-</section>
-
-<!-- 
+        </div>
+      </div NB="GBW-footer-faux">
+    </section>
+    <!-- 
      contact.contact.contact.contact........... __ __  __________  _   ___________   ____________
   contact.contact.contact.contact........... __/ // /_/ ____/ __ \/ | / /_  __/   | / ____/_  __/
  contact.contact.contact.contact........... /_  _  __/ /   / / / /  |/ / / / / /| |/ /     / /
 contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / ___ / /___  / /
  contact.contact.contact.contact........... /_//_/  \____/\____/_/ |_/ /_/ /_/  |_\____/ /_/
  -->
-<section id="CONTACT" :class="['hero','is-size-5','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
-<div class="hero-body">
-  <div class="container">
-    <h1 class="title">
+    <section id="CONTACT" :class="['hero','is-size-5','is-fullheight',page.schema=='light'?'M-GBW-schema-light':'M-GBW-schema-dark']">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
     Contact Us
     </h1>
-
-    <p>
-       If you're not sure you want to talk to us feel free to use our anonymous prescreen form <a @click.prevent="modals.prescreen=true" href="#">here</a>. Otherwise, it would be great to hear from you.
-    </p>
-
-    <p>
-
-  <form>
-
-    <div class="input-group control">
-    <div class="field">
-    <input v-model="contact.name" class="input" type="text" placeholder="name">
-</div NB=".field">
-  </div NB=".input-group">
-  &nbsp;
-  <div class="input-group control has-icons-left has-icons-right">
-    <div class="field">
-    <input v-model="contact.email" :class="['input',isEmailValid('contact')?'is-success':'is-error']" type="text" placeholder="email">
-    <span class="icon is-small is-left">
+          <p>
+            If you're not sure you want to talk to us feel free to use our anonymous prescreen form <a @click.prevent="modals.prescreen=true" href="#">here</a>. Otherwise, it would be great to hear from you.
+          </p>
+          <p>
+            <form>
+              <div class="input-group control">
+                <div class="field">
+                  <input v-model="contact.name" class="input" type="text" placeholder="name">
+                </div NB=".field">
+              </div NB=".input-group">
+              &nbsp;
+              <div class="input-group control has-icons-left has-icons-right">
+                <div class="field">
+                  <input v-model="contact.email" :class="['input',isEmailValid('contact')?'is-success':'is-error']" type="text" placeholder="email">
+                  <span class="icon is-small is-left">
       <font-awesome-icon icon="envelope" />
     </span>
-    <span class="icon is-small is-right">
+                  <span class="icon is-small is-right">
       <font-awesome-icon v-if="isEmailValid('contact')" icon="check" />
       <font-awesome-icon v-if="!isEmailValid('contact')" icon="frown" />
     </span>
-</div NB=".field">
-  </div NB=".input-group">
-  &nbsp;
-<textarea  v-model="contact.content" class="textarea" placeholder="" rows="10"></textarea>
-<button @click="addContact" :class="['GBW-btn-light','button','is-large','is-light','is-fullwidth',contact.waiting?'is-loading':'']" :disabled="!isEmailValid('contact')" type="submit">{{contact.status}}</button>
-<p v-if="!isEmailValid('contact')" class="is-error has-text-centered is-size-7">(please enter a valid email address)</p>
-</form>
-
-</p>
-
-  </div>
-</div>
-<div class="GBW-footer-faux columns">
-  <div class="column is-1">
-    <a @click.prevent="actives.pane='#HOME'" href="">
+                </div NB=".field">
+              </div NB=".input-group">
+              &nbsp;
+              <textarea v-model="contact.content" class="textarea" placeholder="" rows="10"></textarea>
+              <button @click="addContact" :class="['GBW-btn-light','button','is-large','is-light','is-fullwidth',contact.waiting?'is-loading':'']" :disabled="!isEmailValid('contact')" type="submit">{{contact.status}}</button>
+              <p v-if="!isEmailValid('contact')" class="is-error has-text-centered is-size-7">(please enter a valid email address)</p>
+            </form>
+          </p>
+        </div>
+      </div>
+      <div class="GBW-footer-faux columns">
+        <div class="column is-1">
+          <a @click.prevent="actives.pane='#HOME'" href="">
       (<font-awesome-icon icon="arrow-up" />)
     </a>
-  </div>
-</div NB="GBW-footer-faux">
-</section>
-
-<!-- 
+        </div>
+      </div NB="GBW-footer-faux">
+    </section>
+    <!-- 
   •••••••••••••••••••••••••••••••••••••••••••••••••    __________  ____  __   _____
  •••••••••••••••••••••••••••••••••••••••••••••••••    /_  __/ __ \/ __ \/ /  / ___/
   •••••••••••••••••••••••••••••••••••••••••••••••••    / / / / / / / / / /   \__ \
@@ -508,9 +448,7 @@ contact.contact.contact.contact........... /_  _  __/ /___/ /_/ / /|  / / / / __
 </footer>
 </section>
 -->
-
-
-<!-- 
+    <!-- 
     •••••••••••••••••••••••••••••••••••••••••••••••••••••• __  __________________
    •••••••••••••••••••••••••••••••••••••••••••••••••••••• /  |/  / ____/_  __/   |
   •••••••••••••••••••••••••••••••••••••••••••••••••••••• / /|_/ / __/   / / / /| |
@@ -526,8 +464,7 @@ https://www.freepik.com/free-vector/living-room-interior-isometric-scene_6147646
 https://www.freepik.com/free-vector/home-workplace-isometric-scene_6147649.htm#page=2&query=isometric+scene&position=32
 
   -->
-
-</div NB="#gbw-vue-root">
+  </div NB="#gbw-vue-root">
 </template>
 
 <script>
@@ -537,184 +474,187 @@ import EMAILJS from 'emailjs-com';
 import { db } from '../main'
 
 export default {
-  components: {
-  },
+  components: {},
   name: "VolleyConsulting",
   created: function() {
-    this.CONFIG = CONFIGG.mode=="prod"?CONFIGG.prod:CONFIGG.dev
+    this.CONFIG = CONFIGG.mode == "prod" ? CONFIGG.prod : CONFIGG.dev
     this.actives = {
-        pane: (this.$route.params.pane) ? this.$route.params.pane : '#HOME',
-        basemap: (this.$route.params.basemap) ? this.$route.params.basemap : null,
-        updatekey: (this.$route.params.updatekey) ? this.$route.params.updatekey : null,
-        geom: null
-      }
-
-      
-
-  //     this.axios.get("https://api.ipify.org?format=json", function(data) { 
-  
-  // this.axios.get(`http://api.ipstack.com/data.ip?access_key=90464beedcf2fbaf1fa958adfa9b720f&output=json`,(data)=>{
-  //   console.log('ipstack data:',data);
-  //   alert(data)
-  // })})
+      pane: (this.$route.params.pane) ? this.$route.params.pane : '#HOME',
+      basemap: (this.$route.params.basemap) ? this.$route.params.basemap : null,
+      updatekey: (this.$route.params.updatekey) ? this.$route.params.updatekey : null,
+      geom: null
+    }
 
 
 
-  },//created
+    //     this.axios.get("https://api.ipify.org?format=json", function(data) { 
+
+    // this.axios.get(`http://api.ipstack.com/data.ip?access_key=90464beedcf2fbaf1fa958adfa9b720f&output=json`,(data)=>{
+    //   console.log('ipstack data:',data);
+    //   alert(data)
+    // })})
+
+
+
+  }, //created
   beforeDestroy: function() {
     window.removeEventListener('keydown', this.keyMonitor)
   },
   mounted: function() {
 
-this.axios.get(`http://worldtimeapi.org/api/ip`,{"accept": "application/json" })
-            .then((wtarezult) => {
-              
-              // console.log("wtarezult", wtarezult);
-            
-            // console.log('calcdhour:',this.$MOMENT(wtarezult.data.datetime).hour())
-            // console.log('fakedhour:',this.$MOMENT("2020-08-22T15:16:08.735098-04:00").hour())
+    this.axios.get(`http://worldtimeapi.org/api/ip`, { "accept": "application/json" })
+      .then((wtarezult) => {
 
-            let hour = this.$MOMENT(wtarezult.data.datetime).hour();
-this.page.schema=(hour>8 && hour <21) ?'light':'dark'
-            
-        }, (error) => {
-            console.log('FAILED...', error);
-            
-        })
+        // console.log("wtarezult", wtarezult);
+
+        // console.log('calcdhour:',this.$MOMENT(wtarezult.data.datetime).hour())
+        // console.log('fakedhour:',this.$MOMENT("2020-08-22T15:16:08.735098-04:00").hour())
+
+        let hour = this.$MOMENT(wtarezult.data.datetime).hour();
+        this.page.schema = (hour > 8 && hour < 21) ? 'light' : 'dark'
+
+      }, (error) => {
+        console.log('FAILED...', error);
+
+      })
 
 
-// console.log('fakedhour:',)
-            
-    window.document.body.onscroll = ()=>{
-    this.actives.pane=null
-}
+    // console.log('fakedhour:',)
 
-window.addEventListener('keydown', this.keyMonitor)
+    window.document.body.onscroll = () => {
+      this.actives.pane = null
+    }
+
+    window.addEventListener('keydown', this.keyMonitor)
 
   },
-  firestore () {
+  firestore() {
     return {
-      prescreens:db.collection('prescreens')
+      prescreens: db.collection('prescreens')
     }
   },
   data() {
     return {
-      FONT:'Roboto',
+      FONT: 'Roboto',
       CONFIG: null,
       showNav: false,
       loadings: { maplayer: false, app: false, popupopen: false },
       modals: { prescreen: false },
       page: {
         splayed: false,
-        schema:'light',
-        nameOfThing:'Volley Consulting',
-        descriptionOfThing:'Volley Consulting is a small firm from Brookline, Massachusetts that brings years and years of experience with a wide variety of data problems and solutions from across many, many domains.',
-        keywordsForThing:['data consulting','data cleanup','custom development'],
+        schema: 'light',
+        nameOfThing: 'Volley Consulting',
+        descriptionOfThing: 'Volley Consulting is a small firm from Brookline, Massachusetts that brings years and years of experience with a wide variety of data problems and solutions from across many, many domains.',
+        keywordsForThing: ['data consulting', 'data cleanup', 'custom development'],
         panes: [{
-          label: 'Your Situation',
-          slug: '#HOME'
-        },
-        // { label: 'M1', slug: '#M1' }, 
-        // { label: 'Approach',slug: '#APPROACH' },
-        // { label: 'Your Situation', slug: '#PRESCREEN' },
-        { label: 'Contact Us',slug: '#CONTACT' },
-        // { label: 'Tools',slug: '#TOOLS' },
-        { label: 'About',slug: '#ABOUT' }
+            label: 'Your Situation',
+            slug: '#HOME'
+          },
+          // { label: 'M1', slug: '#M1' }, 
+          // { label: 'Approach',slug: '#APPROACH' },
+          // { label: 'Your Situation', slug: '#PRESCREEN' },
+          { label: 'Contact Us', slug: '#CONTACT' },
+          // { label: 'Tools',slug: '#TOOLS' },
+          { label: 'About', slug: '#ABOUT' }
         ]
       },
       project: { shorthand: "Volley" },
       console: { msgs: [] },
-      actives: { pane: 'default'},
-      prescreen: {status:"Submit",waiting:false,"email":null,"content":null,"timestamp":new Date()},
-      contact: {status:"Submit",waiting:false,"email":null,"name":null,"content":null,"timestamp":new Date()}
+      actives: { pane: 'default' },
+      prescreen: { status: "Submit", waiting: false, "email": null, "content": null, "timestamp": new Date() },
+      contact: { status: "Submit", waiting: false, "email": null, "name": null, "content": null, "timestamp": new Date() }
     };
   },
   methods: {
     isEmailValid: function(w) {
       const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/;
-      if(w=='prescreen'){
-            return (this.prescreen.email == "")? "" : (reg.test(this.prescreen.email)) ? true : false;}
-            else if(w=='contact'){
-              return (this.contact.email == "")? "" : (reg.test(this.contact.email)) ? true : false;
-            }
+      if (w == 'prescreen') {
+        return (this.prescreen.email == "") ? "" : (reg.test(this.prescreen.email)) ? true : false;
+      } else if (w == 'contact') {
+        return (this.contact.email == "") ? "" : (reg.test(this.contact.email)) ? true : false;
+      }
     },
     sendEmailPrescreen: function() {
-      let O={reply_to:this.prescreen.email,prescreenBody:this.prescreen.content}
-      // console.log(O)
-      EMAILJS.send('gmail', 'gbw_prescreen',O , 'user_B6haXsW376PCoTkyZ4eYy')
+      let O = { reply_to: this.prescreen.email, prescreenBody: this.prescreen.content }
+        // console.log(O)
+      EMAILJS.send('gmail', 'gbw_prescreen', O, 'user_B6haXsW376PCoTkyZ4eYy')
         .then((result) => {
-            console.log('SUCCESS!', result.status, result.text);
-            this.prescreen.status='tnx!'
+          console.log('SUCCESS!', result.status, result.text);
+          this.prescreen.status = 'tnx!'
         }, (error) => {
-            console.log('FAILED...', error);
-            this.prescreen.status='plz try again'
+          console.log('FAILED...', error);
+          this.prescreen.status = 'plz try again'
         })
-        .finally(()=>{
-        this.prescreen.waiting=false
-      })
+        .finally(() => {
+          this.prescreen.waiting = false
+        })
     },
     sendEmailContact: function() {
-      let O={reply_to:this.contact.email,contactBody:this.contact.content,name:this.contact.name}
+      let O = { reply_to: this.contact.email, contactBody: this.contact.content, name: this.contact.name }
       console.log(O)
-      EMAILJS.send('gmail', 'gbw_contact',O , 'user_B6haXsW376PCoTkyZ4eYy')
+      EMAILJS.send('gmail', 'gbw_contact', O, 'user_B6haXsW376PCoTkyZ4eYy')
         .then((result) => {
-            console.log('SUCCESS!', result.status, result.text);
-            this.contact.status='TNX! We will be eager to reply.'
+          console.log('SUCCESS!', result.status, result.text);
+          this.contact.status = 'TNX! We will be eager to reply.'
         }, (error) => {
-            console.log('FAILED...', error);
-            this.contact.status='plz try again'
+          console.log('FAILED...', error);
+          this.contact.status = 'plz try again'
         })
-        .finally(()=>{
-        this.contact.waiting=false
-      })
+        .finally(() => {
+          this.contact.waiting = false
+        })
     },
-      addPreScreen: function (name, image) {
-        this.prescreen.waiting=true
-      
-      db.collection('prescreens').add({replied:false,reply_to:this.prescreen.email,prescreenBody:this.prescreen.content})
-      .then(ref => {
-this.sendEmailPrescreen()
+    addPreScreen: function(name, image) {
+      this.prescreen.waiting = true
 
-})
+      db.collection('prescreens').add({ replied: false, reply_to: this.prescreen.email, prescreenBody: this.prescreen.content })
+        .then(ref => {
+          this.sendEmailPrescreen()
+
+        })
     },
-      addContact: function (name, image) {
-        this.contact.waiting=true
-      
-      db.collection('contacts').add({replied:false,reply_to:this.contact.email,contactBody:this.contact.content,name:this.contact.name})
-      .then(ref => {
-this.sendEmailContact()
-        console.log("ref", ref);
+    addContact: function(name, image) {
+      this.contact.waiting = true
 
-})
+      db.collection('contacts').add({ replied: false, reply_to: this.contact.email, contactBody: this.contact.content, name: this.contact.name })
+        .then(ref => {
+          this.sendEmailContact()
+          console.log("ref", ref);
+
+        })
     },
     keyMonitor: function(e) {
 
-      if (e.altKey) { this.page.splayed = !this.page.splayed }
-      if (e.key.toLowerCase() == 'escape') { 
-        // this.$_.each(modals,mo=>{mo=false})
-        /*this.modals=this.$_.mapObject(this.modals, (mov, mok)=>{
+        if (e.altKey) { this.page.splayed = !this.page.splayed }
+        if (e.key.toLowerCase() == 'escape') {
+          // this.$_.each(modals,mo=>{mo=false})
+          /*this.modals=this.$_.mapObject(this.modals, (mov, mok)=>{
   return {mov:false}
 });*/
-this.modals=this.$_.mapObject(this.modals,(mo,mk)=>{return mk=false});
-      }
+          this.modals = this.$_.mapObject(this.modals, (mo, mk) => {
+            return mk = false
+          });
+        }
 
-    }//keymonitor
-  ,getColor: function(el){
+      } //keymonitor
+      ,
+    getColor: function(el) {
 
 
 
-  }//getcolor
+      } //getcolor
 
   } //methods
-  ,watch: {
-    "actives.pane":{
-      handler: function (vnew, vold) {
+  ,
+  watch: {
+    "actives.pane": {
+      handler: function(vnew, vold) {
         // we intercept HOME so we zoom to *actual* top that includes nav
-        let target = vnew=='#HOME'?'#GBW-nav':vnew
+        let target = vnew == '#HOME' ? '#GBW-nav' : vnew
         this.$scrollTo(target)
-        
+
       }
-    }//actives.pane
+    } //actives.pane
   } //watch
 };
 </script>
