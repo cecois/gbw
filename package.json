@@ -27,7 +27,7 @@
 		"moment": "^2.24.0",
 		"oimo": "^1.0.9",
 		"sitemap-webpack-plugin": "^0.8.1",
-		"three": "^0.113.2",
+		"three": "^0.137.0",
 		"underscore": "^1.8.3",
 		"vue": "^2.5.2",
 		"vue-axios": "^2.1.5",
